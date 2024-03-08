@@ -59,6 +59,36 @@
                 android:layout_weight="1"
                 android:text="Get User Profile" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/accounts_as_string"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="Placeholder" />
+
+        <Button
+            android:id="@+id/display_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Display Accounts Data" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Email to Signup"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Add password to sign up"/>
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

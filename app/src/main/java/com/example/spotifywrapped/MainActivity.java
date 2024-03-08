@@ -1,14 +1,19 @@
 package com.example.spotifywrapped;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
@@ -18,6 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -26,6 +33,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    private SpotifyWrappedViewModel spotifyWrappedViewModel;
 
     public static final String CLIENT_ID = "306fb5543abb4f23b00ae1a5d1d70886";
     public static final String REDIRECT_URI = "spotifywrapped://auth";
@@ -37,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
     private String mAccessToken, mAccessCode;
     private Call mCall;
 
-    private TextView tokenTextView, codeTextView, profileTextView;
+    private TextView tokenTextView, codeTextView, profileTextView,dataView;
+
+    private EditText email;
+    private EditText password;
+
+    private ArrayList<Account> accountArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +62,19 @@ public class MainActivity extends AppCompatActivity {
         tokenTextView = (TextView) findViewById(R.id.token_text_view);
         codeTextView = (TextView) findViewById(R.id.code_text_view);
         profileTextView = (TextView) findViewById(R.id.response_text_view);
+        dataView = (TextView) findViewById(R.id.accounts_as_string);
+
+        // Initialize Edit Text
+
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
 
         // Initialize the buttons
         Button tokenBtn = (Button) findViewById(R.id.token_btn);
         Button codeBtn = (Button) findViewById(R.id.code_btn);
         Button profileBtn = (Button) findViewById(R.id.profile_btn);
+        Button displayDataBtn = (Button) findViewById(R.id.display_data);
+        Button signupBtn = (Button) findViewById(R.id.signup_button);
 
         // Set the click listeners for the buttons
 
@@ -67,7 +89,35 @@ public class MainActivity extends AppCompatActivity {
         profileBtn.setOnClickListener((v) -> {
             onGetUserProfileClicked();
         });
+        displayDataBtn.setOnClickListener((v -> {
+            String result = "";
+            for(Account a: accountArrayList) {
+                result += a.toString();
+            }
+            dataView.setText(result);
+        }));
 
+
+        SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
+        spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
+
+        spotifyWrappedViewModel.getAllAccounts().observe(this, new Observer<List<Account>>() {
+            @Override
+            public void onChanged(List<Account> accounts) {
+                accountArrayList.clear();
+                for(Account a: accounts) {
+                    accountArrayList.add(a);
+                }
+
+            }
+        });
+
+        signupBtn.setOnClickListener((v)->{
+            Account newAccount = new Account(email.getText().toString(),password.getText().toString());
+            spotifyWrappedViewModel.addNewAccount(newAccount);
+            email.setText("");
+            password.setText("");
+        });
     }
 
     /**

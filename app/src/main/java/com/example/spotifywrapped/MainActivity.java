@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -155,10 +156,12 @@ public class MainActivity extends AppCompatActivity {
         // Check which request code is present (if any)
         if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
             mAccessToken = response.getAccessToken();
+            Log.d("Access Token", mAccessToken);
             setTextAsync(mAccessToken, tokenTextView);
 
         } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
             mAccessCode = response.getCode();
+            Log.d("Access Code", mAccessCode);
             setTextAsync(mAccessCode, codeTextView);
         }
     }
@@ -224,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
     private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
         return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
                 .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email" }) // <--- Change the scope of your requested token here
+                .setScopes(new String[] { "user-read-email", "ugc-image-upload", "user-read-playback-state", "user-modify-playback-state","user-read-currently-playing","app-remote-control","streaming","playlist-read-private","playlist-read-collaborative","playlist-modify-private","playlist-modify-public","user-follow-modify","user-follow-read","user-read-playback-position","user-top-read","user-read-recently-played","user-library-modify","user-library-read","user-read-private"}) // <--- Change the scope of your requested token here
                 .setCampaign("your-campaign-token")
                 .build();
     }

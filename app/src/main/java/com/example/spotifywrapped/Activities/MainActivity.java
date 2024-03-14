@@ -1,4 +1,4 @@
-package com.example.spotifywrapped;
+package com.example.spotifywrapped.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
+import com.example.spotifywrapped.SpotifyWrappedDatabase;
+import com.example.spotifywrapped.SpotifyWrappedViewModel;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -25,7 +27,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import okhttp3.Call;
 import okhttp3.Callback;

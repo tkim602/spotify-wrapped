@@ -1,4 +1,4 @@
-package com.example.spotifywrapped;
+package com.example.spotifywrapped.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
+import com.example.spotifywrapped.SpotifyWrappedDatabase;
+import com.example.spotifywrapped.SpotifyWrappedViewModel;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -25,7 +27,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -227,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
     private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
         return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
                 .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email" }) // <--- Change the scope of your requested token here
+                .setScopes(new String[] { "user-read-email", "ugc-image-upload", "user-read-playback-state", "user-modify-playback-state","user-read-currently-playing","app-remote-control","streaming","playlist-read-private","playlist-read-collaborative","playlist-modify-private","playlist-modify-public","user-follow-modify","user-follow-read","user-read-playback-position","user-top-read","user-read-recently-played","user-library-modify","user-library-read","user-read-private"}) // <--- Change the scope of your requested token here
                 .setCampaign("your-campaign-token")
                 .build();
     }

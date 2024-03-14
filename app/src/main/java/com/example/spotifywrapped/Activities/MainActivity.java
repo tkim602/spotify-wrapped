@@ -1,4 +1,4 @@
-package com.example.spotifywrapped;
+package com.example.spotifywrapped.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
+import com.example.spotifywrapped.SpotifyWrappedDatabase;
+import com.example.spotifywrapped.SpotifyWrappedViewModel;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -78,6 +82,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the click listeners for the buttons
 
+        Button button=(Button)findViewById(R.id.temp);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getApplicationContext(),Login.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+            }
+        });
         tokenBtn.setOnClickListener((v) -> {
             getToken();
         });
@@ -155,10 +170,12 @@ public class MainActivity extends AppCompatActivity {
         // Check which request code is present (if any)
         if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
             mAccessToken = response.getAccessToken();
+            Log.d("Access Token", mAccessToken);
             setTextAsync(mAccessToken, tokenTextView);
 
         } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
             mAccessCode = response.getCode();
+            Log.d("Access Code", mAccessCode);
             setTextAsync(mAccessCode, codeTextView);
         }
     }
@@ -224,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
     private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
         return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
                 .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email" }) // <--- Change the scope of your requested token here
+                .setScopes(new String[] { "user-read-email", "ugc-image-upload", "user-read-playback-state", "user-modify-playback-state","user-read-currently-playing","app-remote-control","streaming","playlist-read-private","playlist-read-collaborative","playlist-modify-private","playlist-modify-public","user-follow-modify","user-follow-read","user-read-playback-position","user-top-read","user-read-recently-played","user-library-modify","user-library-read","user-read-private"}) // <--- Change the scope of your requested token here
                 .setCampaign("your-campaign-token")
                 .build();
     }

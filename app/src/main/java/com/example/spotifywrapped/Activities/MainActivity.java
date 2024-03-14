@@ -1,4 +1,4 @@
-package com.example.spotifywrapped;
+package com.example.spotifywrapped.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
+import com.example.spotifywrapped.SpotifyWrappedDatabase;
+import com.example.spotifywrapped.SpotifyWrappedViewModel;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -77,6 +80,18 @@ public class MainActivity extends AppCompatActivity {
         Button signupBtn = (Button) findViewById(R.id.signup_button);
 
         // Set the click listeners for the buttons
+
+        Button button=(Button)findViewById(R.id.temp);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getApplicationContext(),Login.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+            }
+        });
 
         tokenBtn.setOnClickListener((v) -> {
             getToken();

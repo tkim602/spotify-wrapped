@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login);
 
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
         spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
@@ -40,8 +40,8 @@ public class Login extends AppCompatActivity {
         });
 
         Button loginBtn = (Button) findViewById(R.id.login_button);
-        email = (EditText) findViewById(R.id.loginEmail);
-        password = (EditText) findViewById(R.id.loginPassword);
+        email = (EditText) findViewById(R.id.login_email);
+        password = (EditText) findViewById(R.id.login_password);
 
         loginBtn.setOnClickListener((v)->{
             boolean success = false;

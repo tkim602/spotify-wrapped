@@ -62,7 +62,9 @@
                 android:layout_marginVertical="100dp"
                 android:backgroundTint="#4959EA"
                 android:text="Go"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -71,8 +73,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="414dp"
-        android:layout_height="55dp"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
         android:alpha="0.25"
         android:background="#000000"
         android:text="TextView"

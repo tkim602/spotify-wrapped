@@ -4,7 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +25,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -28,40 +32,71 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-//Full of Errors in this java file; still working on it.
 public class Generate extends AppCompatActivity {
     private Call mCall;
-    private String mAccessToken, mAccessCode;
+    private String mAccessToken;
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
-    public static final int AUTH_CODE_REQUEST_CODE = 1;
     public static final String CLIENT_ID = "306fb5543abb4f23b00ae1a5d1d70886";
     public static final String REDIRECT_URI = "spotifywrapped://auth";
+
+    private ImageView imgButton;
+    private String time_range;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.generate);
-
-        /*MainActivity test = new MainActivity();
-        mAccessToken = test.getAccessToken();*/
-
+        //Initialize the imageview
+        imgButton = (ImageView) findViewById(R.id.cancel_img);
         //Initialize the buttons
         Button goBtn = (Button) findViewById(R.id.button_go);
-        //Set click listeners for buttons
+        //Initialize the spinner
+        Spinner spinner = (Spinner) findViewById(R.id.spinner_generate);
+        //Set click listeners for "x" button
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Generate.this, MainActivity.class); //change MainActivity.class to home page class in code parameter once home page java file is added
+                startActivity(intent);
+            }
+        });
+        //Set click listener for spinner (drop down menu)
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String item = adapterView.getItemAtPosition(position).toString();
+                switch (item) {
+                    case "Past Month":
+                        time_range = "short_term";
+                        break;
+                    case "All Time":
+                        time_range = "long_term";
+                        break;
+                    default:
+                        time_range = "medium_term"; //just for testing purpose
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        //set click listener for "Go" button
         goBtn.setOnClickListener((v) -> {
             onGoButtonClicked();
         });
     }
 
+
+    //need database for the token in signup/login . java?
+    //Below needs revision
     public void onGoButtonClicked() {
 
-        if (mAccessToken == null) {
-            Toast.makeText(this, "You need to get an access token first!", Toast.LENGTH_SHORT).show();
-            final AuthorizationRequest request3 = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
-            AuthorizationClient.openLoginActivity(Generate.this, AUTH_TOKEN_REQUEST_CODE, request3);
-            return;
-        }
+        final AuthorizationRequest request3 = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
+        AuthorizationClient.openLoginActivity(Generate.this, AUTH_TOKEN_REQUEST_CODE, request3);
 
         final Request request = new Request.Builder()
                 .url("https://api.spotify.com/v1/me/top/artists")

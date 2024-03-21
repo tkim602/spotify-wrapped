@@ -19,6 +19,9 @@
             android:name=".Activities.Login"
             android:exported="false" />
         <activity
+            android:name=".Activities.Generate"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>

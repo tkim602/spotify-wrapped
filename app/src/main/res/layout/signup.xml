@@ -6,6 +6,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center">
+
+            <TextView
+                android:id="@+id/token_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                tools:text="Token:" />
+
+            <Button
+                android:id="@+id/token_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Request Token" />
+
+            <TextView
+                android:id="@+id/code_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                tools:text="Code:" />
+
+            <Button
+                android:id="@+id/code_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Request Code" />
+
+            <TextView
+                android:id="@+id/response_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                tools:text="Line 1\nLine 2\nLine 3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/profile_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:text="Get User Profile" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/accounts_as_string"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="Placeholder" />
+
+            <Button
+                android:id="@+id/display_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Display Accounts Data" />
     
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -39,7 +102,6 @@
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
                 android:textColor="@color/black"/>
-
             <EditText
                 android:id="@+id/signup_password"
                 android:layout_width="match_parent"
@@ -49,17 +111,34 @@
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black" />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Sign Up"
-                android:id="@+id/signup_button2"
+                android:id="@+id/signup_button"
                 android:textSize="18sp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/black"
                 app:cornerRadius="20dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+            <!--<?xml version="1.0" encoding="utf-8"?>-->
+            <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--    xmlns:tools="http://schemas.android.com/tools"-->
+            <!--    android:id="@+id/activity_main"-->
+            <!--    android:layout_width="match_parent"-->
+            <!--    android:layout_height="match_parent"-->
+            <!--    tools:context=".Activities.MainActivity">-->
+
+
+            <!--    </LinearLayout>-->
+
+            <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 </LinearLayout>
+
+

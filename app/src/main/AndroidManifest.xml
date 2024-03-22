@@ -22,6 +22,9 @@
             android:name=".Activities.Homepage"
             android:exported="false"/>
         <activity
+            android:name=".Activities.Generate"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>

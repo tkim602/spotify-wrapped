@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,6 +61,8 @@ public class Login extends AppCompatActivity {
             if (!success) {
                 // display error
                 System.out.println("user does not exist");
+            } else {
+                startActivity(new Intent(getApplicationContext(), Homepage.class));
             }
         });
     }

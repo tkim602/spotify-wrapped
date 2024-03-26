@@ -22,26 +22,6 @@
         android:text="Log In To Spotify" />
 
     <TextView
-        android:id="@+id/response_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        tools:text="Line 1\nLine 2\nLine 3" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/profile_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:text="Get User Profile" />
-    </LinearLayout>
-    <TextView
         android:id="@+id/accounts_as_string"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

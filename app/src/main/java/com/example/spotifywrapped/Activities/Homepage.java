@@ -142,8 +142,6 @@ public class Homepage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
         mAccessToken = response.getAccessToken();
-        setTextAsync(mAccessToken, tokenTextView);
-        onGetUserProfileClicked();
     }
 
     /**

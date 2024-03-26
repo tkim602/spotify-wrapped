@@ -59,22 +59,16 @@ public class Homepage extends AppCompatActivity {
 
         // Initialize the views
         tokenTextView = (TextView) findViewById(R.id.token_text_view);
-        codeTextView = (TextView) findViewById(R.id.code_text_view);
         profileTextView = (TextView) findViewById(R.id.response_text_view);
         dataView = (TextView) findViewById(R.id.accounts_as_string);
 
         // Initialize the buttons
-        Button tokenBtn = (Button) findViewById(R.id.token_btn);
-        Button codeBtn = (Button) findViewById(R.id.code_btn);
+        Button logInBtn = (Button) findViewById(R.id.login_btn);
         Button profileBtn = (Button) findViewById(R.id.profile_btn);
         Button displayDataBtn = (Button) findViewById(R.id.display_data);
         // Set the click listeners for the buttons
 
-        tokenBtn.setOnClickListener((v) -> {
-            getLoginInfo();
-        });
-
-        codeBtn.setOnClickListener((v) -> {
+        logInBtn.setOnClickListener((v) -> {
             getLoginInfo();
         });
 
@@ -114,9 +108,6 @@ public class Homepage extends AppCompatActivity {
     public void getLoginInfo() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
         AuthorizationClient.openLoginActivity(Homepage.this, AUTH_TOKEN_REQUEST_CODE, request);
-
-        final AuthorizationRequest request2 = getAuthenticationRequest(AuthorizationResponse.Type.CODE);
-        AuthorizationClient.openLoginActivity(Homepage.this, AUTH_CODE_REQUEST_CODE, request2);
     }
 
     /**
@@ -128,9 +119,7 @@ public class Homepage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
         mAccessToken = response.getAccessToken();
-        mAccessCode = response.getCode();
         setTextAsync(mAccessToken, tokenTextView);
-        setTextAsync(mAccessCode, codeTextView);
     }
 
     /**

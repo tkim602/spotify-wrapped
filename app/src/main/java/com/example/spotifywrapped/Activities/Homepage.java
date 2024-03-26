@@ -114,6 +114,9 @@ public class Homepage extends AppCompatActivity {
     public void getLoginInfo() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
         AuthorizationClient.openLoginActivity(Homepage.this, AUTH_TOKEN_REQUEST_CODE, request);
+
+        final AuthorizationRequest request2 = getAuthenticationRequest(AuthorizationResponse.Type.CODE);
+        AuthorizationClient.openLoginActivity(Homepage.this, AUTH_CODE_REQUEST_CODE, request2);
     }
 
     /**
@@ -124,10 +127,10 @@ public class Homepage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
-        mAccessCode = response.getCode();
         mAccessToken = response.getAccessToken();
-        setTextAsync(mAccessCode, codeTextView);
+        mAccessCode = response.getCode();
         setTextAsync(mAccessToken, tokenTextView);
+        setTextAsync(mAccessCode, codeTextView);
     }
 
     /**

@@ -90,7 +90,7 @@
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
         android:paddingBottom="8dp"
-        android:text="Welcome"
+        android:text="Welcome,"
         android:textColor="#000000"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/generate_button"

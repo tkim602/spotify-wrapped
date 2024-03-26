@@ -19,14 +19,27 @@ public class Account {
 
     @ColumnInfo(name = "account_name")
     private String accountName;
+  
+    @ColumnInfo(name = "account_token")
+    private String accountToken;
 
     public Account(String accountEmail, String accountPassword, String accountName) {
         this.accountEmail = accountEmail;
         this.accountPassword = accountPassword;
         this.accountName = accountName;
+        this.accountToken = null;
     }
+
     public  Account() {
 
+    }
+
+    public String getAccountToken() {
+        return accountToken;
+    }
+
+    public void setAccountToken(String accountToken) {
+        this.accountToken = accountToken;
     }
 
     public int getAccountID() {
@@ -63,6 +76,6 @@ public class Account {
     @NonNull
     @Override
     public String toString() {
-        return "Account ID: " + accountID + ", Email: " + accountEmail + ", Password: " + accountPassword;
+        return "Account ID: " + accountID + ", Email: " + accountEmail + ", Password: " + accountPassword + ", Token: " + accountToken;
     }
 }

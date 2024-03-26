@@ -45,7 +45,7 @@ public class Homepage extends AppCompatActivity {
 
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
     public static final int AUTH_CODE_REQUEST_CODE = 1;
-
+    public String profile;
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     private String mAccessToken, mAccessCode;
     private Call mCall;
@@ -53,7 +53,6 @@ public class Homepage extends AppCompatActivity {
     private String accountEmail;
 
     private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
-
     private EditText email;
     private EditText password;
 
@@ -79,11 +78,11 @@ public class Homepage extends AppCompatActivity {
         // Set the click listeners for the buttons
 
         tokenBtn.setOnClickListener((v) -> {
-            getToken();
+            getLoginInfo();
         });
 
         codeBtn.setOnClickListener((v) -> {
-            getCode();
+            getLoginInfo();
         });
 
         profileBtn.setOnClickListener((v) -> {
@@ -146,22 +145,10 @@ public class Homepage extends AppCompatActivity {
      * What is token?
      * https://developer.spotify.com/documentation/general/guides/authorization-guide/
      */
-    public void getToken() {
+    public void getLoginInfo() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
         AuthorizationClient.openLoginActivity(Homepage.this, AUTH_TOKEN_REQUEST_CODE, request);
     }
-
-    /**
-     * Get code from Spotify
-     * This method will open the Spotify login activity and get the code
-     * What is code?
-     * https://developer.spotify.com/documentation/general/guides/authorization-guide/
-     */
-    public void getCode() {
-        final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.CODE);
-        AuthorizationClient.openLoginActivity(Homepage.this, AUTH_CODE_REQUEST_CODE, request);
-    }
-
 
     /**
      * When the app leaves this activity to momentarily get a token/code, this function
@@ -171,18 +158,10 @@ public class Homepage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
-
-        // Check which request code is present (if any)
-        if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-            mAccessToken = response.getAccessToken();
-            Log.d("Access Token", mAccessToken);
-            setTextAsync(mAccessToken, tokenTextView);
-
-        } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
-            mAccessCode = response.getCode();
-            Log.d("Access Code", mAccessCode);
-            setTextAsync(mAccessCode, codeTextView);
-        }
+        mAccessCode = response.getCode();
+        mAccessToken = response.getAccessToken();
+        setTextAsync(mAccessCode, codeTextView);
+        setTextAsync(mAccessToken, tokenTextView);
     }
 
     /**

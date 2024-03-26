@@ -62,7 +62,12 @@ public class Login extends AppCompatActivity {
                 // display error
                 System.out.println("user does not exist");
             } else {
-                startActivity(new Intent(getApplicationContext(), Homepage.class));
+                Bundle bundle = new Bundle();
+                bundle.putString("email", e);
+                bundle.putString("password", p);
+                Intent i = new Intent(getApplicationContext(), Homepage.class);
+                i.putExtras(bundle);
+                startActivity(i);
             }
         });
     }

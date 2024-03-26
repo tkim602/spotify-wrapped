@@ -1,11 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#BDF8A7">
 
+    <TextView
+        android:id="@+id/token_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        tools:text="Token:" />
+
+    <Button
+        android:id="@+id/token_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Request Token" />
+
+    <TextView
+        android:id="@+id/code_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        tools:text="Code:" />
+
+    <Button
+        android:id="@+id/code_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Request Code" />
+
+    <TextView
+        android:id="@+id/response_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        tools:text="Line 1\nLine 2\nLine 3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/profile_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="Get User Profile" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/accounts_as_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:text="Placeholder" />
+
+    <Button
+        android:id="@+id/display_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Display Accounts Data" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="24dp">
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -19,20 +94,17 @@
         android:textColor="#000000"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/generate_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/name_homepage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="name"
+        android:text="[username]"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/generate_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <Button
@@ -41,27 +113,25 @@
         android:layout_height="wrap_content"
         android:text="Generate"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="@id/name_homepage" />
+            <Button
+                android:id="@+id/archive_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Archive"
+                app:layout_constraintBottom_toTopOf="@+id/setting_button"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/generate_button" />
 
-    <Button
-        android:id="@+id/archive_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Archive"
-        app:layout_constraintBottom_toTopOf="@+id/setting_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generate_button" />
-
-    <Button
+            <Button
         android:id="@+id/setting_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+                android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/generate_button" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

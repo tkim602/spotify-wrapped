@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login);
 
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
         spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
@@ -40,8 +41,8 @@ public class Login extends AppCompatActivity {
         });
 
         Button loginBtn = (Button) findViewById(R.id.login_button);
-        email = (EditText) findViewById(R.id.loginEmail);
-        password = (EditText) findViewById(R.id.loginPassword);
+        email = (EditText) findViewById(R.id.login_email);
+        password = (EditText) findViewById(R.id.login_password);
 
         loginBtn.setOnClickListener((v)->{
             boolean success = false;
@@ -60,6 +61,8 @@ public class Login extends AppCompatActivity {
             if (!success) {
                 // display error
                 System.out.println("user does not exist");
+            } else {
+                startActivity(new Intent(getApplicationContext(), Homepage.class));
             }
         });
     }

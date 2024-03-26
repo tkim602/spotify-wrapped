@@ -85,14 +85,13 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
         android:paddingStart="16dp"
+        android:fontFamily="sans-serif-medium"
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
         android:text="Welcome,"
         android:textColor="#000000"
-        android:textSize="35sp"
+        android:textSize="33sp"
         app:layout_constraintBottom_toTopOf="@+id/generate_button"
         android:layout_gravity="center_horizontal"/>
 
@@ -102,30 +101,33 @@
         android:layout_height="wrap_content"
         android:text="[username]"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:paddingBottom="16dp"
+        android:textSize="33sp"
+        android:fontFamily="sans-serif-medium"
         app:layout_constraintBottom_toTopOf="@+id/generate_button"
         android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
-    <Button
-        android:id="@+id/generate_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Generate"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintTop_toTopOf="@id/name_homepage" />
             <Button
-                android:id="@+id/archive_button"
+                android:id="@+id/generate_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Archive"
+                android:layout_gravity="center_horizontal"
+                android:text="Generate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@id/name_homepage" />
+
+            <Button
+                android:id="@+id/gallery_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gallery"
                 app:layout_constraintBottom_toTopOf="@+id/setting_button"
                 android:layout_gravity="center_horizontal"
                 app:layout_constraintTop_toBottomOf="@+id/generate_button" />
 
             <Button
-        android:id="@+id/setting_button"
+        android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"

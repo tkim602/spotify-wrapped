@@ -17,9 +17,13 @@ public class Account {
     @ColumnInfo(name = "account_password")
     private String accountPassword;
 
-    public Account(String accountEmail, String accountPassword) {
+    @ColumnInfo(name = "account_name")
+    private String accountName;
+
+    public Account(String accountEmail, String accountPassword, String accountName) {
         this.accountEmail = accountEmail;
         this.accountPassword = accountPassword;
+        this.accountName = accountName;
     }
     public  Account() {
 
@@ -31,6 +35,14 @@ public class Account {
 
     public void setAccountID(int accountID) {
         this.accountID = accountID;
+    }
+
+    public String getAccountName() {
+        return this.accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     public String getAccountEmail() {

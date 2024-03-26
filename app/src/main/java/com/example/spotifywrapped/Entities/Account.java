@@ -17,15 +17,19 @@ public class Account {
     @ColumnInfo(name = "account_password")
     private String accountPassword;
 
+    @ColumnInfo(name = "account_name")
+    private String accountName;
+  
     @ColumnInfo(name = "account_token")
     private String accountToken;
 
-
-    public Account(String accountEmail, String accountPassword) {
+    public Account(String accountEmail, String accountPassword, String accountName) {
         this.accountEmail = accountEmail;
         this.accountPassword = accountPassword;
+        this.accountName = accountName;
         this.accountToken = null;
     }
+
     public  Account() {
 
     }
@@ -44,6 +48,14 @@ public class Account {
 
     public void setAccountID(int accountID) {
         this.accountID = accountID;
+    }
+
+    public String getAccountName() {
+        return this.accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     public String getAccountEmail() {

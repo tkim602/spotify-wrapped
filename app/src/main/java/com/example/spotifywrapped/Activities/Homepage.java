@@ -50,6 +50,7 @@ public class Homepage extends AppCompatActivity {
     private String mAccessToken, mAccessCode;
     private Call mCall;
 
+    private String accountEmail;
 
     private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
     private EditText email;
@@ -107,29 +108,33 @@ public class Homepage extends AppCompatActivity {
                     accountArrayList.add(a);
                 }
 
-
                 Bundle bundle = getIntent().getExtras();
-                String email = "";
                 String temp = "email";
-                email = bundle.getString(temp);
+                accountEmail = bundle.getString(temp);
 
                 Account currAccount = null;
                 for (Account a : accountArrayList) {
                     System.out.println(a.getAccountEmail());
-                    if (a.getAccountEmail().equals(email)) {
+                    if (a.getAccountEmail().equals(accountEmail)) {
                         currAccount = a;
                         break;
                     }
                 }
 
-                System.out.println(email);
-
-                if (currAccount != null) {
-                    nameView.setText(currAccount.getAccountEmail());
-                }
-
+                String firstName = currAccount.getAccountName().split(" ")[0];
+                nameView.setText(firstName + "!");
 
             }
+        });
+
+        Button settingsBtn = (Button) findViewById(R.id.settings_button);
+
+        settingsBtn.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putString("email", accountEmail);
+            Intent i = new Intent(getApplicationContext(), Settings.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
 
     }

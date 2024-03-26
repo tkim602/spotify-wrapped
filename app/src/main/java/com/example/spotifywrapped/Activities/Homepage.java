@@ -50,7 +50,7 @@ public class Homepage extends AppCompatActivity {
     private String mAccessToken, mAccessCode;
     private Call mCall;
 
-    private TextView tokenTextView, codeTextView, profileTextView,dataView;
+    private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
 
     private EditText email;
     private EditText password;
@@ -67,6 +67,7 @@ public class Homepage extends AppCompatActivity {
         codeTextView = (TextView) findViewById(R.id.code_text_view);
         profileTextView = (TextView) findViewById(R.id.response_text_view);
         dataView = (TextView) findViewById(R.id.accounts_as_string);
+        nameView = (TextView) findViewById(R.id.name_homepage);
 
         // Initialize the buttons
         Button tokenBtn = (Button) findViewById(R.id.token_btn);
@@ -106,8 +107,31 @@ public class Homepage extends AppCompatActivity {
                     accountArrayList.add(a);
                 }
 
+
+                Bundle bundle = getIntent().getExtras();
+                String email = "";
+                String temp = "email";
+                email = bundle.getString(temp);
+
+                Account currAccount = null;
+                for (Account a : accountArrayList) {
+                    System.out.println(a.getAccountEmail());
+                    if (a.getAccountEmail().equals(email)) {
+                        currAccount = a;
+                        break;
+                    }
+                }
+
+                System.out.println(email);
+
+                if (currAccount != null) {
+                    nameView.setText(currAccount.getAccountEmail());
+                }
+
+
             }
         });
+
     }
 
     /**

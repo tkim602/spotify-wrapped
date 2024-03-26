@@ -57,7 +57,7 @@ public class Generate extends AppCompatActivity {
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Generate.this, MainActivity.class); //change MainActivity.class to home page class in code parameter once home page java file is added
+                Intent intent = new Intent(Generate.this, Homepage.class);
                 startActivity(intent);
             }
         });
@@ -89,6 +89,21 @@ public class Generate extends AppCompatActivity {
             onGoButtonClicked();
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //need database for the token in signup/login . java?

@@ -37,7 +37,6 @@ import okhttp3.Callback;
 import okhttp3.Request;
 
 public class Signup extends AppCompatActivity {
-
     private SpotifyWrappedViewModel spotifyWrappedViewModel;
     private EditText email;
     private EditText password;

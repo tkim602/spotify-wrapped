@@ -5,8 +5,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.spotifywrapped.Interfaces.Personalization;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.spotifywrapped.Models.SpotifyTrackResponse;
 import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;

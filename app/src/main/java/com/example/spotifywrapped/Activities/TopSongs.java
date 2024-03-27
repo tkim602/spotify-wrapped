@@ -10,7 +10,7 @@ import com.example.spotifywrapped.Interfaces.Personalization;
 import com.example.spotifywrapped.Models.SpotifyTrackResponse;
 import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,7 +66,7 @@ public class TopSongs extends AppCompatActivity {
         Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken);
         call.enqueue(new Callback<SpotifyTrackResponse>() {
             @Override
-            public void onResponse(@NonNull Call<SpotifyTrackResponse> call, Response<SpotifyTrackResponse> response) {
+            public void onResponse(@NonNull Call<SpotifyTrackResponse> call, @NonNull Response<SpotifyTrackResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Track> tracks = response.body().getItems();
                     updateTopTracksUI(tracks);
@@ -89,10 +89,7 @@ public class TopSongs extends AppCompatActivity {
         for (int i = 0; i < limit; i++) {
             Track track = tracks.get(i);
             songTextViews[i].setText(track.getName());
-            // Load the album image using Picasso
-            if (!track.getAlbum().getImages().isEmpty()) {
-                Picasso.get().load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
-            }
+            Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
         }
     }
 }

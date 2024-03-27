@@ -3,7 +3,7 @@ package com.example.spotifywrapped.Activities;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-1
+
 import androidx.annotation.NonNull;
 import com.example.spotifywrapped.Interfaces.Personalization;
 import androidx.appcompat.app.AppCompatActivity;

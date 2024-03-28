@@ -65,28 +65,16 @@ public class Homepage extends AppCompatActivity {
 
         // Initialize the views
         tokenTextView = (TextView) findViewById(R.id.token_text_view);
-        codeTextView = (TextView) findViewById(R.id.code_text_view);
-        profileTextView = (TextView) findViewById(R.id.response_text_view);
         dataView = (TextView) findViewById(R.id.accounts_as_string);
         nameView = (TextView) findViewById(R.id.name_homepage);
 
         // Initialize the buttons
-        Button tokenBtn = (Button) findViewById(R.id.token_btn);
-        Button codeBtn = (Button) findViewById(R.id.code_btn);
-        Button profileBtn = (Button) findViewById(R.id.profile_btn);
+        Button logInBtn = (Button) findViewById(R.id.login_btn);
         Button displayDataBtn = (Button) findViewById(R.id.display_data);
         // Set the click listeners for the buttons
 
-        tokenBtn.setOnClickListener((v) -> {
+        logInBtn.setOnClickListener((v) -> {
             getLoginInfo();
-        });
-
-        codeBtn.setOnClickListener((v) -> {
-            getLoginInfo();
-        });
-
-        profileBtn.setOnClickListener((v) -> {
-            onGetUserProfileClicked();
         });
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
@@ -158,10 +146,7 @@ public class Homepage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
-        mAccessCode = response.getCode();
         mAccessToken = response.getAccessToken();
-        setTextAsync(mAccessCode, codeTextView);
-        setTextAsync(mAccessToken, tokenTextView);
     }
 
     /**

@@ -21,6 +21,8 @@ public class Login extends AppCompatActivity {
     private SpotifyWrappedViewModel spotifyWrappedViewModel;
     private EditText email;
     private EditText password;
+
+    private int accountID;
     private ArrayList<Account> accountArrayList = new ArrayList<>();
 
 
@@ -52,6 +54,8 @@ public class Login extends AppCompatActivity {
             for (Account a : accountArrayList) {
                 if (a.getAccountEmail().equals(e) && a.getAccountPassword().equals(p)) {
                     success = true;
+                    //Store successfull sign in account to accountID which will be passed to homepage
+                    accountID = a.getAccountID();
                     System.out.println("success");
                     break;
                     // do stuff to login the user in
@@ -65,6 +69,7 @@ public class Login extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("email", e);
                 bundle.putString("password", p);
+                bundle.putInt("accountID", accountID);
                 Intent i = new Intent(getApplicationContext(), Homepage.class);
                 i.putExtras(bundle);
                 startActivity(i);

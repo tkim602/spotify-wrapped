@@ -89,10 +89,6 @@ public class Homepage extends AppCompatActivity {
         profileBtn.setOnClickListener((v) -> {
             onGetUserProfileClicked();
         });
-        generateBtn.setOnClickListener((v) -> {
-            Intent intent = new Intent(Homepage.this, Generate.class);
-            startActivity(intent);
-        });
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
             for(Account a: accountArrayList) {

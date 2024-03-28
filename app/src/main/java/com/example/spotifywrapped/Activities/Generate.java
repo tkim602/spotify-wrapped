@@ -91,25 +91,11 @@ public class Generate extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //need database for the token in signup/login . java?
     //Below needs revision
     public void onGoButtonClicked() {
 
+        /*
         final AuthorizationRequest request3 = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
         AuthorizationClient.openLoginActivity(Generate.this, AUTH_TOKEN_REQUEST_CODE, request3);
 
@@ -171,5 +157,7 @@ public class Generate extends AppCompatActivity {
     }
     private void setTextAsync(final String text, TextView textView) {
         runOnUiThread(() -> textView.setText(text));
+    }
+         */
     }
 }

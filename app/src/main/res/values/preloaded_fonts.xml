@@ -2,6 +2,5 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/bungee</item>
-        <item>@font/abril_fatface</item>
     </array>
 </resources>

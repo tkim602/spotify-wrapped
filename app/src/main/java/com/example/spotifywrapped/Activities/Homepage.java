@@ -50,11 +50,14 @@ public class Homepage extends AppCompatActivity {
     private String mAccessToken, mAccessCode;
     private Call mCall;
 
-    private String accountEmail;
+    private Account currAccount;
+
 
     private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
     private EditText email;
     private EditText password;
+
+    private int accountID;
 
     private ArrayList<Account> accountArrayList = new ArrayList<>();
 
@@ -97,13 +100,11 @@ public class Homepage extends AppCompatActivity {
                 }
 
                 Bundle bundle = getIntent().getExtras();
-                String temp = "email";
-                accountEmail = bundle.getString(temp);
+                accountID = bundle.getInt("accountID");
 
-                Account currAccount = null;
                 for (Account a : accountArrayList) {
                     System.out.println(a.getAccountEmail());
-                    if (a.getAccountEmail().equals(accountEmail)) {
+                    if (a.getAccountID() == accountID) {
                         currAccount = a;
                         break;
                     }
@@ -119,11 +120,12 @@ public class Homepage extends AppCompatActivity {
 
         settingsBtn.setOnClickListener((v)->{
             Bundle bundle = new Bundle();
-            bundle.putString("email", accountEmail);
+            bundle.putInt("accountID", accountID);
             Intent i = new Intent(getApplicationContext(), Settings.class);
             i.putExtras(bundle);
             startActivity(i);
         });
+
 
     }
 
@@ -147,6 +149,7 @@ public class Homepage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
         mAccessToken = response.getAccessToken();
+        currAccount.setAccountToken(mAccessToken);
     }
 
     /**

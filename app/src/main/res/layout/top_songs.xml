@@ -23,14 +23,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:fontFamily="@font/bungee"
-            android:text="                        Top Songs"
+            android:text="My Top Songs"
             android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.1" />
 

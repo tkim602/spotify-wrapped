@@ -75,6 +75,7 @@ public class Homepage extends AppCompatActivity {
         Button codeBtn = (Button) findViewById(R.id.code_btn);
         Button profileBtn = (Button) findViewById(R.id.profile_btn);
         Button displayDataBtn = (Button) findViewById(R.id.display_data);
+        Button generateBtn = (Button) findViewById(R.id.generate_button);
         // Set the click listeners for the buttons
 
         tokenBtn.setOnClickListener((v) -> {
@@ -87,6 +88,10 @@ public class Homepage extends AppCompatActivity {
 
         profileBtn.setOnClickListener((v) -> {
             onGetUserProfileClicked();
+        });
+        generateBtn.setOnClickListener((v) -> {
+            Intent intent = new Intent(Homepage.this, Generate.class);
+            startActivity(intent);
         });
         displayDataBtn.setOnClickListener((v -> {
             String result = "";

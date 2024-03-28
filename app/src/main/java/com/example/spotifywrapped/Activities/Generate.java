@@ -94,7 +94,7 @@ public class Generate extends AppCompatActivity {
     //need database for the token in signup/login . java?
     //Below needs revision
     public void onGoButtonClicked() {
-        Intent intent = new Intent(Generate.this, Homepage.class); //Change from Homepage.class to Top Songs
+        Intent intent = new Intent(Generate.this, Homepage.class); //Change from Homepage.class to Top_songs
         startActivity(intent);
         /*
         final AuthorizationRequest request3 = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);

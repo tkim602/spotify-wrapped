@@ -40,6 +40,7 @@ public class Signup extends AppCompatActivity {
     private SpotifyWrappedViewModel spotifyWrappedViewModel;
     private EditText email;
     private EditText password;
+    private EditText name;
     private ArrayList<Account> accountArrayList = new ArrayList<>();
 
     @Override
@@ -50,6 +51,7 @@ public class Signup extends AppCompatActivity {
 
         email = (EditText) findViewById(R.id.signup_email);
         password = (EditText) findViewById(R.id.signup_password);
+        name = (EditText) findViewById(R.id.signup_name);
 
         // Initialize the button
         Button signupBtn = (Button) findViewById(R.id.signup_button);
@@ -61,18 +63,17 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onChanged(List<Account> accounts) {
                 accountArrayList.clear();
-                for(Account a: accounts) {
-                    accountArrayList.add(a);
-                }
+                accountArrayList.addAll(accounts);
 
             }
         });
 
         signupBtn.setOnClickListener((v)->{
-            Account newAccount = new Account(email.getText().toString(),password.getText().toString());
+            Account newAccount = new Account(email.getText().toString(),password.getText().toString(), name.getText().toString());
             spotifyWrappedViewModel.addNewAccount(newAccount);
             email.setText("");
             password.setText("");
+            name.setText("");
             startActivity(new Intent(getApplicationContext(),Login.class));
         });
     }

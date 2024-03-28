@@ -22,12 +22,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:fontFamily="@font/bungee"
-            android:text="                        Top Songs"
+            android:fontFamily="@font/abril_fatface"
+            android:text="Gallery"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/item1_imageView"
+                    android:id="@+id/song1_imageView"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginEnd="20dp"
@@ -65,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:fontFamily="@font/bungee"
+                    android:fontFamily="@font/abril_fatface"
                     android:text="TextView"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
@@ -80,7 +81,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/item2_imageView"
+                    android:id="@+id/song2_imageView"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginEnd="20dp"
@@ -92,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:fontFamily="@font/bungee"
+                    android:fontFamily="@font/abril_fatface"
                     android:text="TextView"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
@@ -107,7 +108,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/item3_imageView"
+                    android:id="@+id/song3_imageView"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginEnd="20dp"
@@ -119,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:fontFamily="@font/bungee"
+                    android:fontFamily="@font/abril_fatface"
                     android:text="TextView"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
@@ -146,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:fontFamily="@font/bungee"
+                    android:fontFamily="@font/abril_fatface"
                     android:text="TextView"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
@@ -173,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:fontFamily="@font/bungee"
+                    android:fontFamily="@font/abril_fatface"
                     android:text="TextView"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />

@@ -44,14 +44,13 @@ public class Homepage extends AppCompatActivity {
     public static final String REDIRECT_URI = "spotifywrapped://auth";
 
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
-    public static final int AUTH_CODE_REQUEST_CODE = 1;
-    public String profile;
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
-    private String mAccessToken, mAccessCode;
+    private String mAccessToken;
     private Call mCall;
 
-    private String accountEmail;
+    private int accountID;
 
+    private Account currAccount;
     private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
     private EditText email;
     private EditText password;
@@ -71,10 +70,18 @@ public class Homepage extends AppCompatActivity {
         // Initialize the buttons
         Button logInBtn = (Button) findViewById(R.id.login_btn);
         Button displayDataBtn = (Button) findViewById(R.id.display_data);
-        // Set the click listeners for the buttons
+        Button generateBtn = (Button) findViewById(R.id.generate_button);
+        Button settingsBtn = (Button) findViewById(R.id.settings_button);
 
+        // Set the click listeners for the buttons
         logInBtn.setOnClickListener((v) -> {
             getLoginInfo();
+        });
+        generateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Generate.class));
+            }
         });
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
@@ -83,7 +90,13 @@ public class Homepage extends AppCompatActivity {
             }
             dataView.setText(result);
         }));
-
+        settingsBtn.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            Intent i = new Intent(getApplicationContext(), Settings.class);
+            i.putExtras(bundle);
+            startActivity(i);
+        });
 
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
         spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
@@ -97,13 +110,11 @@ public class Homepage extends AppCompatActivity {
                 }
 
                 Bundle bundle = getIntent().getExtras();
-                String temp = "email";
-                accountEmail = bundle.getString(temp);
+                accountID = bundle.getInt("accountID");
 
-                Account currAccount = null;
                 for (Account a : accountArrayList) {
                     System.out.println(a.getAccountEmail());
-                    if (a.getAccountEmail().equals(accountEmail)) {
+                    if (a.getAccountID()==accountID) {
                         currAccount = a;
                         break;
                     }
@@ -114,17 +125,6 @@ public class Homepage extends AppCompatActivity {
 
             }
         });
-
-        Button settingsBtn = (Button) findViewById(R.id.settings_button);
-
-        settingsBtn.setOnClickListener((v)->{
-            Bundle bundle = new Bundle();
-            bundle.putString("email", accountEmail);
-            Intent i = new Intent(getApplicationContext(), Settings.class);
-            i.putExtras(bundle);
-            startActivity(i);
-        });
-
     }
 
     /**
@@ -147,6 +147,8 @@ public class Homepage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
         mAccessToken = response.getAccessToken();
+        currAccount.setAccountToken(mAccessToken);
+        spotifyWrappedViewModel.updateAccount(currAccount);
     }
 
     /**

@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.spotifywrapped.Entities.Account;
 
@@ -17,6 +18,9 @@ public interface AccountDAO {
 
     @Delete
     void delete(Account account);
+
+    @Update
+    void update(Account account);
 
     @Query("SELECT * FROM  accounts_table")
     LiveData<List<Account>> getAllAssignments();

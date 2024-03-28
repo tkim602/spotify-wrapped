@@ -36,6 +36,15 @@ public class Repository {
             }
         });
     }
+
+    public void updateAccount(Account account) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                accountDAO.update(account);
+            }
+        });
+    }
     public LiveData<List<Account>> getAllAccounts() {
         return accountDAO.getAllAssignments();
     }

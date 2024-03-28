@@ -67,8 +67,6 @@ public class Login extends AppCompatActivity {
                 System.out.println("user does not exist");
             } else {
                 Bundle bundle = new Bundle();
-                bundle.putString("email", e);
-                bundle.putString("password", p);
                 bundle.putInt("accountID", accountID);
                 Intent i = new Intent(getApplicationContext(), Homepage.class);
                 i.putExtras(bundle);

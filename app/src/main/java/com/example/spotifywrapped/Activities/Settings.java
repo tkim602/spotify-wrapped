@@ -45,11 +45,10 @@ public class Settings extends AppCompatActivity {
                 accountArrayList.addAll(accounts);
 
                 Bundle bundle = getIntent().getExtras();
-                String temp = "email";
-                String accountEmail = bundle.getString(temp);
+                int accountID = bundle.getInt("accountID");
 
                 for (Account a : accountArrayList) {
-                    if (a.getAccountEmail().equals(accountEmail)) {
+                    if (a.getAccountID()==accountID) {
                         currAccount = a;
                         break;
                     }
@@ -70,6 +69,9 @@ public class Settings extends AppCompatActivity {
             String editedPassword = editPassword.getText().toString();
             editEmail.setText("");
             editPassword.setText("");
+            currAccount.setAccountEmail(editedEmail);
+            currAccount.setAccountPassword(editedPassword);
+            spotifyWrappedViewModel.updateAccount(currAccount);
         });
 
         Button deleteButton = (Button) findViewById(R.id.delete_account);

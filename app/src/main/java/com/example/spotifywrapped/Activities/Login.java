@@ -70,7 +70,6 @@ public class Login extends AppCompatActivity {
 
             if (!success) {
                 toast.show();
-                System.out.println("user does not exist");
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putInt("accountID", accountID);

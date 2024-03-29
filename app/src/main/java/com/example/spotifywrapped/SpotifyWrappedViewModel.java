@@ -28,6 +28,7 @@ public class SpotifyWrappedViewModel extends AndroidViewModel {
     public void addNewAccount(Account account) {
         myRepository.addAccount(account);
     }
+    public void updateAccount(Account account) {myRepository.updateAccount(account);}
 
     public void removeAccount(Account account) {
         myRepository.removeAccount(account);

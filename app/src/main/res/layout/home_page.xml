@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#BDF8A7">
+    android:background="@drawable/gradient2">
 
     <TextView
         android:id="@+id/token_text_view"
@@ -13,48 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         tools:text="Token:" />
-
     <Button
-        android:id="@+id/token_btn"
+        android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Request Token" />
+        android:text="Log In To Spotify" />
 
-    <TextView
-        android:id="@+id/code_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        tools:text="Code:" />
-
-    <Button
-        android:id="@+id/code_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Request Code" />
-
-    <TextView
-        android:id="@+id/response_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        tools:text="Line 1\nLine 2\nLine 3" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/profile_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:text="Get User Profile" />
-    </LinearLayout>
     <TextView
         android:id="@+id/accounts_as_string"
         android:layout_width="match_parent"

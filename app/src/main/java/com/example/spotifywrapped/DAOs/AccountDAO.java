@@ -18,6 +18,7 @@ public interface AccountDAO {
     @Delete
     void delete(Account account);
 
+
     @Query("SELECT * FROM  accounts_table")
     LiveData<List<Account>> getAllAssignments();
 }

@@ -98,6 +98,9 @@ public class Homepage extends AppCompatActivity {
             startActivity(i);
         });
 
+        System.out.println("hi, you're here now");
+
+
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
         spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
 

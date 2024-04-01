@@ -23,7 +23,8 @@ import android.widget.Toast;
 
 public class TopSongs extends AppCompatActivity {
     private Personalization personalizationService;
-
+    private String AccessToken;
+    private String time_range;
     private ImageView[] songImageViews = new ImageView[5];
     private TextView[] songTextViews = new TextView[5];
 
@@ -33,7 +34,9 @@ public class TopSongs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.top_songs);
-
+        Bundle bundle = getIntent().getExtras();
+        AccessToken = bundle.getString("accountToken");
+        time_range = bundle.getString("timeFrame");
         // View bindings and initialize them
         songImageViews[0] = findViewById(R.id.song1_imageView);
         songImageViews[1] = findViewById(R.id.song2_imageView);

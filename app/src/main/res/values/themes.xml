@@ -3,7 +3,8 @@
     <style name="Base.Theme.SpotifyWrapped" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
     </style>
-
     <style name="Theme.SpotifyWrapped" parent="Base.Theme.SpotifyWrapped" />
 </resources>

@@ -77,12 +77,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/cancel_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="36dp"
+        android:backgroundTint="#00FFFFFF"
         android:translationX="5dp"
         android:translationY="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_img"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_silent_mode" />
 

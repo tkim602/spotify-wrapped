@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SpotifyWrapped"
+        android:theme="@style/Base.Theme.SpotifyWrapped"
         tools:targetApi="31">
 
         <activity
@@ -24,6 +24,9 @@
             android:exported="false" />
         <activity
             android:name=".Activities.Homepage"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Generate"
             android:exported="false" />
         <activity
             android:name=".Activities.MainActivity"

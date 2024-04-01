@@ -48,8 +48,9 @@ public class Homepage extends AppCompatActivity {
     private String mAccessToken;
     private Call mCall;
 
-    private String accountEmail;
+    private int accountID;
 
+    private Account currAccount;
     private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
     private EditText email;
     private EditText password;
@@ -76,12 +77,7 @@ public class Homepage extends AppCompatActivity {
         logInBtn.setOnClickListener((v) -> {
             getLoginInfo();
         });
-        generateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Generate.class));
-            }
-        });
+
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
             for(Account a: accountArrayList) {
@@ -89,13 +85,9 @@ public class Homepage extends AppCompatActivity {
             }
             dataView.setText(result);
         }));
-        settingsBtn.setOnClickListener((v)->{
-            Bundle bundle = new Bundle();
-            bundle.putString("email", accountEmail);
-            Intent i = new Intent(getApplicationContext(), Settings.class);
-            i.putExtras(bundle);
-            startActivity(i);
-        });
+
+        System.out.println("hi, you're here now");
+
 
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
         spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
@@ -109,13 +101,11 @@ public class Homepage extends AppCompatActivity {
                 }
 
                 Bundle bundle = getIntent().getExtras();
-                String temp = "email";
-                accountEmail = bundle.getString(temp);
+                accountID = bundle.getInt("accountID");
 
-                Account currAccount = null;
                 for (Account a : accountArrayList) {
                     System.out.println(a.getAccountEmail());
-                    if (a.getAccountEmail().equals(accountEmail)) {
+                    if (a.getAccountID()==accountID) {
                         currAccount = a;
                         break;
                     }
@@ -125,6 +115,22 @@ public class Homepage extends AppCompatActivity {
                 nameView.setText(firstName + "!");
 
             }
+        });
+        generateBtn.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            bundle.putString("accountToken", mAccessToken);
+            Intent i = new Intent(getApplicationContext(), Generate.class);
+            i.putExtras(bundle);
+            startActivity(i);
+
+        });
+        settingsBtn.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            Intent i = new Intent(getApplicationContext(), Settings.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
     }
 
@@ -148,6 +154,8 @@ public class Homepage extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
         mAccessToken = response.getAccessToken();
+        currAccount.setAccountToken(mAccessToken);
+        spotifyWrappedViewModel.updateAccount(currAccount);
     }
 
     /**

@@ -90,7 +90,7 @@ public class TopSongs extends AppCompatActivity {
 
     private void loadTopTracks() {
         // dont know how to access to mAccessToken
-        String authToken = "Bearer " + "token";
+        String authToken = "Bearer " + AccessToken;
 
         Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken);
         call.enqueue(new Callback<SpotifyTrackResponse>() {
@@ -127,15 +127,16 @@ public class TopSongs extends AppCompatActivity {
                     currProgress = currProgress + 10;
                     progress.setProgress(currProgress);
                     progress.setMax(100);
+
                     Bundle bundle = new Bundle();
                     bundle.putString("accountToken", AccessToken);
                     bundle.putString("timeFrame", time_range);
                     bundle.putInt("currentProgress", currProgress);
-                    Intent i = new Intent(getApplicationContext(), TopArtists.class);
+                    Intent i = new Intent(getApplicationContext(), Generate.class);
                     i.putExtras(bundle);
                     startActivity(i);
                 }
             }, 30000);
         }
     }
-}
+

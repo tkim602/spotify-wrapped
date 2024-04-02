@@ -34,6 +34,7 @@ public class TopSongs extends AppCompatActivity {
     private String AccessToken;
     private String time_range;
     private ImageButton exitButton;
+    private ImageButton nextButton;
 
     private ImageView[] songImageViews = new ImageView[6];
     private TextView[] songTextViews = new TextView[6];
@@ -62,13 +63,26 @@ public class TopSongs extends AppCompatActivity {
         songTextViews[4] = findViewById(R.id.song5_name);
         songTextViews[5] = findViewById(R.id.song6_name);
         exitButton = findViewById(R.id.exitButton);
+        nextButton = findViewById(R.id.nextButton);
 
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("accountToken", AccessToken);
-                Intent i = new Intent(getApplicationContext(), Generate.class);
+                Intent i = new Intent(getApplicationContext(), Homepage.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("accountToken", AccessToken);
+                bundle.putString("timeFrame", time_range);
+                Intent i = new Intent(getApplicationContext(), TopArtists.class);
                 i.putExtras(bundle);
                 startActivity(i);
             }
@@ -128,7 +142,7 @@ public class TopSongs extends AppCompatActivity {
                     i.putExtras(bundle);
                     startActivity(i);
                 }
-            }, 300);
+            }, 3000);
         }
     }
 

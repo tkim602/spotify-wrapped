@@ -1,7 +1,10 @@
 package com.example.spotifywrapped.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +33,10 @@ public class TopArtists extends AppCompatActivity {
     private ImageView[] artistImageViews = new ImageView[6];
     private TextView[] artistTextViews = new TextView[6];
 
+    private ImageButton exitButton;
+
+    private ImageButton nextButton;
+
     private Retrofit retrofit;
 
     @Override
@@ -39,6 +46,8 @@ public class TopArtists extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         AccessToken = bundle.getString("accountToken");
         time_range = bundle.getString("timeFrame");
+        exitButton = findViewById(R.id.exitButton);
+        nextButton = findViewById(R.id.nextButton);
         // View bindings and initialize them
         artistImageViews[0] = findViewById(R.id.artist_1);
         artistImageViews[1] = findViewById(R.id.artist_2);
@@ -53,6 +62,29 @@ public class TopArtists extends AppCompatActivity {
         artistTextViews[3] = findViewById(R.id.artist4_name);
         artistTextViews[4] = findViewById(R.id.artist5_name);
         artistTextViews[5] = findViewById(R.id.artist6_name);
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("accountToken", AccessToken);
+                Intent i = new Intent(getApplicationContext(), Homepage.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("accountToken", AccessToken);
+                bundle.putString("timeFrame", time_range);
+                Intent i = new Intent(getApplicationContext(), GameOne.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
 
         setupRetrofit();
         loadTopArtists();

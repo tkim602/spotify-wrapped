@@ -33,9 +33,8 @@ public class TopSongs extends AppCompatActivity {
     private Personalization personalizationService;
     private String AccessToken;
     private String time_range;
-    private ProgressBar progress;
-    private int currProgress = 0;
     private ImageButton exitButton;
+    private ImageButton nextButton;
 
     private ImageView[] songImageViews = new ImageView[6];
     private TextView[] songTextViews = new TextView[6];
@@ -63,15 +62,27 @@ public class TopSongs extends AppCompatActivity {
         songTextViews[3] = findViewById(R.id.song4_name);
         songTextViews[4] = findViewById(R.id.song5_name);
         songTextViews[5] = findViewById(R.id.song6_name);
-        progress = findViewById(R.id.songsProgressBar);
         exitButton = findViewById(R.id.exitButton);
+        nextButton = findViewById(R.id.nextButton);
 
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("accountToken", AccessToken);
-                Intent i = new Intent(getApplicationContext(), Generate.class);
+                Intent i = new Intent(getApplicationContext(), Homepage.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("accountToken", AccessToken);
+                bundle.putString("timeFrame", time_range);
+                Intent i = new Intent(getApplicationContext(), TopArtists.class);
                 i.putExtras(bundle);
                 startActivity(i);
             }
@@ -124,19 +135,14 @@ public class TopSongs extends AppCompatActivity {
             new TimerTask(){
                 @Override
                 public void run(){
-                    currProgress = currProgress + 10;
-                    progress.setProgress(currProgress);
-                    progress.setMax(100);
-
                     Bundle bundle = new Bundle();
                     bundle.putString("accountToken", AccessToken);
                     bundle.putString("timeFrame", time_range);
-                    bundle.putInt("currentProgress", currProgress);
-                    Intent i = new Intent(getApplicationContext(), Generate.class);
+                    Intent i = new Intent(getApplicationContext(), TopArtists.class);
                     i.putExtras(bundle);
                     startActivity(i);
                 }
-            }, 30000);
+            }, 3000);
         }
     }
 

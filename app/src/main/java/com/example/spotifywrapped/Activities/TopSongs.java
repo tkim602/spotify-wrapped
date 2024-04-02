@@ -33,8 +33,6 @@ public class TopSongs extends AppCompatActivity {
     private Personalization personalizationService;
     private String AccessToken;
     private String time_range;
-    private ProgressBar progress;
-    private int currProgress = 0;
     private ImageButton exitButton;
 
     private ImageView[] songImageViews = new ImageView[6];
@@ -63,7 +61,6 @@ public class TopSongs extends AppCompatActivity {
         songTextViews[3] = findViewById(R.id.song4_name);
         songTextViews[4] = findViewById(R.id.song5_name);
         songTextViews[5] = findViewById(R.id.song6_name);
-        progress = findViewById(R.id.songsProgressBar);
         exitButton = findViewById(R.id.exitButton);
 
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -124,14 +121,9 @@ public class TopSongs extends AppCompatActivity {
             new TimerTask(){
                 @Override
                 public void run(){
-                    currProgress = currProgress + 10;
-                    progress.setProgress(currProgress);
-                    progress.setMax(100);
-
                     Bundle bundle = new Bundle();
                     bundle.putString("accountToken", AccessToken);
                     bundle.putString("timeFrame", time_range);
-                    bundle.putInt("currentProgress", currProgress);
                     Intent i = new Intent(getApplicationContext(), TopArtists.class);
                     i.putExtras(bundle);
                     startActivity(i);

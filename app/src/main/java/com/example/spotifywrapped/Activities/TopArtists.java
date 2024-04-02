@@ -95,8 +95,9 @@ public class TopArtists extends AppCompatActivity {
         for (int i = 0; i < limit; i++) {
             Artist artist = artists.get(i);
             artistTextViews[i].setText(artist.getName());
-            if (artist != null && artist.getUrl() != null) {
-                Glide.with(this).load(artist.getUrl()).into(artistImageViews[i]);
+            System.out.println(artist.getUrl());
+            if (artist != null) {
+                Glide.with(this).load(artist.getImages().get(0).getUrl()).into(artistImageViews[i]);
             }
         }
     }

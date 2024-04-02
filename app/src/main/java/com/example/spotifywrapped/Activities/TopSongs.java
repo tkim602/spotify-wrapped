@@ -1,7 +1,9 @@
 package com.example.spotifywrapped.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,9 @@ import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
 import com.bumptech.glide.Glide;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,6 +30,9 @@ public class TopSongs extends AppCompatActivity {
     private Personalization personalizationService;
     private String AccessToken;
     private String time_range;
+    private ProgressBar progress;
+    private int currProgress = 0;
+
     private ImageView[] songImageViews = new ImageView[6];
     private TextView[] songTextViews = new TextView[6];
 
@@ -51,6 +59,7 @@ public class TopSongs extends AppCompatActivity {
         songTextViews[3] = findViewById(R.id.song4_name);
         songTextViews[4] = findViewById(R.id.song5_name);
         songTextViews[5] = findViewById(R.id.song6_name);
+        progress = findViewById(R.id.songsProgressBar);
 
         setupRetrofit();
         loadTopTracks();
@@ -95,6 +104,23 @@ public class TopSongs extends AppCompatActivity {
             Track track = tracks.get(i);
             songTextViews[i].setText(track.getName());
             Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
+        }
+        new Timer().schedule(
+            new TimerTask(){
+                @Override
+                public void run(){
+                    currProgress = currProgress + 10;
+                    progress.setProgress(currProgress);
+                    progress.setMax(100);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("accountToken", AccessToken);
+                    bundle.putString("timeFrame", time_range);
+                    bundle.putInt("currentProgress", currProgress);
+                    Intent i = new Intent(getApplicationContext(), TopArtists.class);
+                    i.putExtras(bundle);
+                    startActivity(i);
+                }
+            }, 30000);
         }
     }
 }

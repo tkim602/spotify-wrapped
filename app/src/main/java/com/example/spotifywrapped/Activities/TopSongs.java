@@ -132,7 +132,7 @@ public class TopSongs extends AppCompatActivity {
                     bundle.putString("accountToken", AccessToken);
                     bundle.putString("timeFrame", time_range);
                     bundle.putInt("currentProgress", currProgress);
-                    Intent i = new Intent(getApplicationContext(), Generate.class);
+                    Intent i = new Intent(getApplicationContext(), TopArtists.class);
                     i.putExtras(bundle);
                     startActivity(i);
                 }

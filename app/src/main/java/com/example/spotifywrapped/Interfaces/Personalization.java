@@ -1,6 +1,7 @@
 package com.example.spotifywrapped.Interfaces;
 
 import com.example.spotifywrapped.Models.SpotifyTrackResponse;
+import com.example.spotifywrapped.Models.SpotifyArtistResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;

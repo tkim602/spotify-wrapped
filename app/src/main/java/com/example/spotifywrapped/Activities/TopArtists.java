@@ -9,11 +9,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.spotifywrapped.Interfaces.Personalization;
 import com.example.spotifywrapped.Models.SpotifyArtistResponse;
 import com.example.spotifywrapped.Models.Artist;
 import com.example.spotifywrapped.R;
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -25,9 +25,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TopArtists extends AppCompatActivity {
     private Personalization personalizationService;
-
-    private ImageView[] artistImageViews = new ImageView[5];
-    private TextView[] artistTextViews = new TextView[5];
+    private String AccessToken;
+    private String time_range;
+    private ImageView[] artistImageViews = new ImageView[6];
+    private TextView[] artistTextViews = new TextView[6];
 
     private Retrofit retrofit;
 
@@ -35,7 +36,9 @@ public class TopArtists extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.top_artists);
-
+        Bundle bundle = getIntent().getExtras();
+        AccessToken = bundle.getString("accountToken");
+        time_range = bundle.getString("timeFrame");
         // View bindings and initialize them
         artistImageViews[0] = findViewById(R.id.artist_1);
         artistImageViews[1] = findViewById(R.id.artist_2);
@@ -64,8 +67,7 @@ public class TopArtists extends AppCompatActivity {
     }
 
     private void loadTopArtists() {
-        // Replace "token" with the actual access token obtained after user authentication
-        String authToken = "Bearer " + "token";
+        String authToken = "Bearer " + AccessToken;
 
         Call<SpotifyArtistResponse> call = personalizationService.getTopArtists(authToken);
         call.enqueue(new Callback<SpotifyArtistResponse>() {
@@ -89,12 +91,13 @@ public class TopArtists extends AppCompatActivity {
     }
 
     private void updateTopArtistsUI(List<Artist> artists) {
-        int limit = Math.min(artists.size(), 5);
+        int limit = Math.min(artists.size(), 6);
         for (int i = 0; i < limit; i++) {
             Artist artist = artists.get(i);
             artistTextViews[i].setText(artist.getName());
-            Glide.with(this).load(artist.getImages().get(0).getUrl()).into(artistImageViews[i]);
+            if (artist != null && artist.getUrl() != null) {
+                Glide.with(this).load(artist.getUrl()).into(artistImageViews[i]);
+            }
         }
     }
 }
-

@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E431A2">
+        android:background="#8CECE4">
 
         <TextView
             android:id="@+id/topSongsHeader"
@@ -114,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/top_song"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -196,12 +196,84 @@
             app:layout_constraintTop_toTopOf="@+id/song3" />
 
         <TextView
+            android:id="@+id/textView3"
+            android:layout_width="90dp"
+            android:layout_height="118dp"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:translationX="0dp"
+            android:translationY="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/song4_box"
+            app:layout_constraintEnd_toEndOf="@+id/song4"
+            app:layout_constraintStart_toStartOf="@+id/song4" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="106dp"
+            android:layout_height="118dp"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:translationX="0dp"
+            android:translationY="-13dp"
+            app:layout_constraintEnd_toEndOf="@+id/song4"
+            app:layout_constraintStart_toStartOf="@+id/song4"
+            app:layout_constraintTop_toTopOf="@+id/song4" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="90dp"
+            android:layout_height="118dp"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:translationX="0dp"
+            android:translationY="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/song5_box"
+            app:layout_constraintEnd_toEndOf="@+id/song5"
+            app:layout_constraintStart_toStartOf="@+id/song5" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="106dp"
+            android:layout_height="118dp"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:translationX="0dp"
+            android:translationY="-13dp"
+            app:layout_constraintEnd_toEndOf="@+id/song5"
+            app:layout_constraintStart_toStartOf="@+id/song5"
+            app:layout_constraintTop_toTopOf="@+id/song5" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="90dp"
+            android:layout_height="118dp"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:translationX="0dp"
+            android:translationY="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/song6_box"
+            app:layout_constraintEnd_toEndOf="@+id/song6"
+            app:layout_constraintStart_toStartOf="@+id/song6" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="106dp"
+            android:layout_height="118dp"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:translationX="0dp"
+            android:translationY="-13dp"
+            app:layout_constraintEnd_toEndOf="@+id/song6"
+            app:layout_constraintStart_toStartOf="@+id/song6"
+            app:layout_constraintTop_toTopOf="@+id/song6" />
+
+        <TextView
             android:id="@+id/song1_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
-            android:backgroundTint="#8CECE4"
+            android:backgroundTint="#E431A2"
             android:translationX="0dp"
             app:layout_constraintStart_toStartOf="@+id/song1"
             app:layout_constraintTop_toTopOf="@+id/song1" />
@@ -225,7 +297,7 @@
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
-            android:backgroundTint="#8CECE4"
+            android:backgroundTint="#E431A2"
             android:translationX="0dp"
             app:layout_constraintStart_toStartOf="@+id/song2"
             app:layout_constraintTop_toTopOf="@+id/song2" />
@@ -249,7 +321,7 @@
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
-            android:backgroundTint="#8CECE4"
+            android:backgroundTint="#E431A2"
             android:translationX="0dp"
             app:layout_constraintStart_toStartOf="@+id/song3"
             app:layout_constraintTop_toTopOf="@+id/song3" />
@@ -274,7 +346,7 @@
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
-            android:backgroundTint="#8CECE4"
+            android:backgroundTint="#E431A2"
             android:translationX="0dp"
             app:layout_constraintStart_toStartOf="@+id/song4"
             app:layout_constraintTop_toTopOf="@+id/song4" />
@@ -299,7 +371,7 @@
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
-            android:backgroundTint="#8CECE4"
+            android:backgroundTint="#E431A2"
             android:translationX="0dp"
             app:layout_constraintStart_toStartOf="@+id/song5"
             app:layout_constraintTop_toTopOf="@+id/song5" />
@@ -325,7 +397,7 @@
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
-            android:backgroundTint="#8CECE4"
+            android:backgroundTint="#E431A2"
             android:translationX="0dp"
             app:layout_constraintStart_toStartOf="@+id/song6"
             app:layout_constraintTop_toTopOf="@+id/song6" />
@@ -351,7 +423,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:text="#1"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/song1"
@@ -364,7 +436,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:text="#2"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/song2"
@@ -377,7 +449,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:text="#3"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/song3"
@@ -390,7 +462,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:text="#4"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/song4"
@@ -403,7 +475,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:text="#5"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/song5"
@@ -416,7 +488,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:text="#6"
-            android:textColor="#8CECE4"
+            android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/song6"
@@ -428,7 +500,7 @@
             android:layout_height="41dp"
             android:text="Song Name"
             android:textAlignment="center"
-            android:textColor="#E431A2"
+            android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/song1_box"
@@ -442,7 +514,7 @@
             android:layout_height="41dp"
             android:text="Song Name"
             android:textAlignment="center"
-            android:textColor="#E431A2"
+            android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/song2_box"
@@ -456,7 +528,7 @@
             android:layout_height="41dp"
             android:text="Song Name"
             android:textAlignment="center"
-            android:textColor="#E431A2"
+            android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/song3_box"
@@ -470,7 +542,7 @@
             android:layout_height="41dp"
             android:text="Song Name"
             android:textAlignment="center"
-            android:textColor="#E431A2"
+            android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/song4_box"
@@ -484,7 +556,7 @@
             android:layout_height="41dp"
             android:text="Song Name"
             android:textAlignment="center"
-            android:textColor="#E431A2"
+            android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/song5_box"
@@ -498,7 +570,7 @@
             android:layout_height="41dp"
             android:text="Song Name"
             android:textAlignment="center"
-            android:textColor="#E431A2"
+            android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/song6_box"

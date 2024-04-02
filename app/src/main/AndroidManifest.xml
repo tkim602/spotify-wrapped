@@ -35,6 +35,12 @@
         <activity
             android:name=".Activities.MainActivity"
             android:exported="true" />
+        <activity android:name=".Activities.GameOne"
+            android:exported="false"/>
+        <activity android:name=".Activities.GameTwo"
+            android:exported="false"/>
+        <activity android:name=".Activities.Summary"
+            android:exported="false"/>
         <activity
             android:name=".Activities.splash_main"
             android:exported="true" >

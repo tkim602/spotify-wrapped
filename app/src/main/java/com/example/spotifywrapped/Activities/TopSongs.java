@@ -131,18 +131,6 @@ public class TopSongs extends AppCompatActivity {
             songTextViews[i].setText(track.getName());
             Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
         }
-        new Timer().schedule(
-            new TimerTask(){
-                @Override
-                public void run(){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("accountToken", AccessToken);
-                    bundle.putString("timeFrame", time_range);
-                    Intent i = new Intent(getApplicationContext(), TopArtists.class);
-                    i.putExtras(bundle);
-                    startActivity(i);
-                }
-            }, 3000);
-        }
     }
+}
 

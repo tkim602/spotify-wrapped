@@ -24,6 +24,8 @@
             android:exported="false" />
         <activity android:name=".Activities.TopSongs"
             android:exported="false" />
+        <activity android:name=".Activities.TopArtists"
+            android:exported="false" />
         <activity
             android:name=".Activities.Homepage"
             android:exported="false" />

@@ -14,7 +14,8 @@ import com.example.spotifywrapped.R;
 
 import com.example.spotifywrapped.SpotifyWrappedDatabase;
 import com.example.spotifywrapped.SpotifyWrappedViewModel;
-import com.example.spotifywrapped.databinding.ActivitySettingsBinding;
+import com.example.spotifywrapped.databinding.ActivitySettingsBindingImpl;
+//import com.example.spotifywrapped.databinding.ActivitySettingsBinding;
 
 import java.util.ArrayList;
 import java.util.List;

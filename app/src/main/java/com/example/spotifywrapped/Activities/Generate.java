@@ -53,6 +53,9 @@ public class Generate extends AppCompatActivity {
         Button goBtn = (Button) findViewById(R.id.button_go);
         //Initialize the spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner_generate);
+
+        Bundle bundle = getIntent().getExtras();
+        mAccessToken = bundle.getString("accountToken");
         //Set click listeners for "x" button
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +97,12 @@ public class Generate extends AppCompatActivity {
     //need database for the token in signup/login . java?
     //Below needs revision
     public void onGoButtonClicked() {
-        Intent intent = new Intent(Generate.this, Homepage.class); //Change from Homepage.class to Top_songs
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putString("accountToken", mAccessToken);
+        bundle.putString("timeFrame", time_range);
+        Intent i = new Intent(getApplicationContext(), TopSongs.class);
+        i.putExtras(bundle);
+        startActivity(i);
         /*
         final AuthorizationRequest request3 = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
         AuthorizationClient.openLoginActivity(Generate.this, AUTH_TOKEN_REQUEST_CODE, request3);

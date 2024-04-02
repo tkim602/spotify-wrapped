@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
@@ -62,9 +63,13 @@ public class Login extends AppCompatActivity {
                 }
             }
 
+            CharSequence text = "Incorrect email or password";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(this, text, duration);
+
             if (!success) {
-                // display error
-                System.out.println("user does not exist");
+                toast.show();
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putInt("accountID", accountID);

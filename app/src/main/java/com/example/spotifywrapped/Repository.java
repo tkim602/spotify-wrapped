@@ -37,6 +37,17 @@ public class Repository {
         });
     }
 
+
+    public void removeAccount(Account account) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                accountDAO.delete(account);
+            }
+        });
+    }
+
+
     public void updateAccount(Account account) {
         executor.execute(new Runnable() {
             @Override
@@ -45,6 +56,7 @@ public class Repository {
             }
         });
     }
+
     public LiveData<List<Account>> getAllAccounts() {
         return accountDAO.getAllAssignments();
     }

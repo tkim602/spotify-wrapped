@@ -77,12 +77,7 @@ public class Homepage extends AppCompatActivity {
         logInBtn.setOnClickListener((v) -> {
             getLoginInfo();
         });
-        generateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Generate.class));
-            }
-        });
+
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
             for(Account a: accountArrayList) {
@@ -90,13 +85,9 @@ public class Homepage extends AppCompatActivity {
             }
             dataView.setText(result);
         }));
-        settingsBtn.setOnClickListener((v)->{
-            Bundle bundle = new Bundle();
-            bundle.putInt("accountID", accountID);
-            Intent i = new Intent(getApplicationContext(), Settings.class);
-            i.putExtras(bundle);
-            startActivity(i);
-        });
+
+        System.out.println("hi, you're here now");
+
 
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
         spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
@@ -124,6 +115,22 @@ public class Homepage extends AppCompatActivity {
                 nameView.setText(firstName + "!");
 
             }
+        });
+        generateBtn.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            bundle.putString("accountToken", mAccessToken);
+            Intent i = new Intent(getApplicationContext(), Generate.class);
+            i.putExtras(bundle);
+            startActivity(i);
+
+        });
+        settingsBtn.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            Intent i = new Intent(getApplicationContext(), Settings.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
     }
 

@@ -136,7 +136,7 @@ public class TopSongs extends AppCompatActivity {
                     i.putExtras(bundle);
                     startActivity(i);
                 }
-            }, 30000);
+            }, 300);
         }
     }
 

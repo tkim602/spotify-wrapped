@@ -2,6 +2,9 @@ package com.example.spotifywrapped.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +35,7 @@ public class TopSongs extends AppCompatActivity {
     private String time_range;
     private ProgressBar progress;
     private int currProgress = 0;
+    private ImageButton exitButton;
 
     private ImageView[] songImageViews = new ImageView[6];
     private TextView[] songTextViews = new TextView[6];
@@ -60,7 +64,18 @@ public class TopSongs extends AppCompatActivity {
         songTextViews[4] = findViewById(R.id.song5_name);
         songTextViews[5] = findViewById(R.id.song6_name);
         progress = findViewById(R.id.songsProgressBar);
+        exitButton = findViewById(R.id.exitButton);
 
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("accountToken", AccessToken);
+                Intent i = new Intent(getApplicationContext(), Generate.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
         setupRetrofit();
         loadTopTracks();
     }

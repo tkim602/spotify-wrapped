@@ -4,9 +4,8 @@
     <string name="top_art">Top Artists</string>
     <string name="top_song">Top Songs</string>
     <string-array name="times">
-        <item>Past Week</item>
         <item>Past Month</item>
+        <item>Past Six Months</item>
         <item>Past Year</item>
-        <item>All Time</item>
     </string-array>
 </resources>

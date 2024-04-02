@@ -26,89 +26,97 @@
             android:id="@+id/exitButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
             android:backgroundTint="#00FFFFFF"
             android:translationX="5dp"
-            android:translationY="5dp"
+            android:translationY="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
         <ImageView
-            android:id="@+id/headerImage1"
-            android:layout_width="65dp"
-            android:layout_height="7dp"
-            android:layout_marginStart="10dp"
+            android:id="@+id/segment1"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
             android:layout_marginTop="20dp"
-            android:alpha="0.5"
+            android:layout_marginStart="25dp"
             android:scaleX="1.5"
-            app:layout_constraintEnd_toStartOf="@+id/headerImage2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
-
-        <ImageView
-            android:id="@+id/headerImage3"
-            android:layout_width="65dp"
-            android:layout_height="7dp"
-            android:layout_marginTop="20dp"
-            android:alpha="0.5"
-            android:scaleX="1.5"
-            app:layout_constraintEnd_toStartOf="@+id/headerImage4"
-            app:layout_constraintStart_toEndOf="@+id/headerImage2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
-
-        <ImageView
-            android:id="@+id/headerImage2"
-            android:layout_width="65dp"
-            android:layout_height="7dp"
-            android:layout_marginTop="20dp"
-            android:alpha="0.5"
-            android:scaleX="1.5"
-            app:layout_constraintEnd_toStartOf="@+id/headerImage3"
-            app:layout_constraintStart_toEndOf="@+id/headerImage1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
-
-        <ImageView
-            android:id="@+id/headerImage5"
-            android:layout_width="65dp"
-            android:layout_height="7dp"
-            android:layout_marginTop="20dp"
-            android:alpha="0.5"
-            android:scaleX="1.5"
-            app:layout_constraintEnd_toStartOf="@+id/headerImage6"
-            app:layout_constraintStart_toEndOf="@+id/headerImage4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
-
-        <ImageView
-            android:id="@+id/headerImage4"
-            android:layout_width="65dp"
-            android:layout_height="7dp"
-            android:layout_marginTop="20dp"
-            android:alpha="0.5"
-            android:scaleX="1.5"
-            app:layout_constraintEnd_toStartOf="@+id/headerImage5"
-            app:layout_constraintStart_toEndOf="@+id/headerImage3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
-
-        <ImageView
-            android:id="@+id/headerImage6"
-            android:layout_width="65dp"
-            android:layout_height="7dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white" />
+        <ImageView
+            android:id="@+id/segment2"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white"
+            />
+        <ImageView
+            android:id="@+id/segment3"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
             android:alpha="0.5"
             android:scaleX="1.5"
-            app:layout_constraintEnd_toEndOf="@+id/topSongsHeader"
-            app:layout_constraintStart_toEndOf="@+id/headerImage5"
+            app:layout_constraintStart_toEndOf="@id/segment2"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
-
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            />
+        <ImageView
+            android:id="@+id/segment4"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment3"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            />
+        <ImageView
+            android:id="@+id/segment5"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment4"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            />
+        <ImageView
+            android:id="@+id/segment6"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment5"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            />
 
 
         <TextView

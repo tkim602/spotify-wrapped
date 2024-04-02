@@ -46,7 +46,7 @@ public class TopArtists extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         AccessToken = bundle.getString("accountToken");
         time_range = bundle.getString("timeFrame");
-        exitButton = findViewById(R.id.exitButton);
+        exitButton = findViewById(R.id.imageButton2);
         nextButton = findViewById(R.id.nextButton);
         // View bindings and initialize them
         artistImageViews[0] = findViewById(R.id.artist_1);

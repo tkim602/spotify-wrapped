@@ -1,7 +1,12 @@
 package com.example.spotifywrapped.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +17,9 @@ import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
 import com.bumptech.glide.Glide;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,31 +33,49 @@ public class TopSongs extends AppCompatActivity {
     private Personalization personalizationService;
     private String AccessToken;
     private String time_range;
-    private ImageView[] songImageViews = new ImageView[5];
-    private TextView[] songTextViews = new TextView[5];
+    private ProgressBar progress;
+    private int currProgress = 0;
+    private ImageButton exitButton;
+
+    private ImageView[] songImageViews = new ImageView[6];
+    private TextView[] songTextViews = new TextView[6];
 
     private Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.top_songs);
+        setContentView(R.layout.top_songs2);
         Bundle bundle = getIntent().getExtras();
         AccessToken = bundle.getString("accountToken");
         time_range = bundle.getString("timeFrame");
         // View bindings and initialize them
-        songImageViews[0] = findViewById(R.id.song1_imageView);
-        songImageViews[1] = findViewById(R.id.song2_imageView);
-        songImageViews[2] = findViewById(R.id.song3_imageView);
-        songImageViews[3] = findViewById(R.id.song4_imageView);
-        songImageViews[4] = findViewById(R.id.song5_imageView);
+        songImageViews[0] = findViewById(R.id.song1);
+        songImageViews[1] = findViewById(R.id.song2);
+        songImageViews[2] = findViewById(R.id.song3);
+        songImageViews[3] = findViewById(R.id.song4);
+        songImageViews[4] = findViewById(R.id.song5);
+        songImageViews[5] = findViewById(R.id.song6);
 
-        songTextViews[0] = findViewById(R.id.song1_textView);
-        songTextViews[1] = findViewById(R.id.song2_textView);
-        songTextViews[2] = findViewById(R.id.song3_textView);
-        songTextViews[3] = findViewById(R.id.song4_textView);
-        songTextViews[4] = findViewById(R.id.song5_textView);
+        songTextViews[0] = findViewById(R.id.song1_name);
+        songTextViews[1] = findViewById(R.id.song2_name);
+        songTextViews[2] = findViewById(R.id.song3_name);
+        songTextViews[3] = findViewById(R.id.song4_name);
+        songTextViews[4] = findViewById(R.id.song5_name);
+        songTextViews[5] = findViewById(R.id.song6_name);
+        progress = findViewById(R.id.songsProgressBar);
+        exitButton = findViewById(R.id.exitButton);
 
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("accountToken", AccessToken);
+                Intent i = new Intent(getApplicationContext(), Generate.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
         setupRetrofit();
         loadTopTracks();
     }
@@ -64,7 +90,7 @@ public class TopSongs extends AppCompatActivity {
 
     private void loadTopTracks() {
         // dont know how to access to mAccessToken
-        String authToken = "Bearer " + "token";
+        String authToken = "Bearer " + AccessToken;
 
         Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken);
         call.enqueue(new Callback<SpotifyTrackResponse>() {
@@ -88,11 +114,29 @@ public class TopSongs extends AppCompatActivity {
     }
 
     private void updateTopTracksUI(List<Track> tracks) {
-        int limit = Math.min(tracks.size(), 5);
+        int limit = Math.min(tracks.size(), 6);
         for (int i = 0; i < limit; i++) {
             Track track = tracks.get(i);
             songTextViews[i].setText(track.getName());
             Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
         }
+        new Timer().schedule(
+            new TimerTask(){
+                @Override
+                public void run(){
+                    currProgress = currProgress + 10;
+                    progress.setProgress(currProgress);
+                    progress.setMax(100);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("accountToken", AccessToken);
+                    bundle.putString("timeFrame", time_range);
+                    bundle.putInt("currentProgress", currProgress);
+                    Intent i = new Intent(getApplicationContext(), Generate.class);
+                    i.putExtras(bundle);
+                    startActivity(i);
+                }
+            }, 30000);
+        }
     }
-}
+

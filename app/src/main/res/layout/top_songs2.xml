@@ -35,92 +35,81 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
-        <ProgressBar
-            android:id="@+id/songsProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/headerImage1"
+            android:layout_width="65dp"
+            android:layout_height="7dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
             android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintEnd_toStartOf="@+id/headerImage2"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:progressDrawable="@drawable/custom_progress_bg"/>
-<!--        <ImageView-->
-<!--            android:id="@+id/headerImage1"-->
-<!--            android:layout_width="65dp"-->
-<!--            android:layout_height="7dp"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:alpha="0.5"-->
-<!--            android:scaleX="1.5"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/headerImage2"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@android:drawable/button_onoff_indicator_off" />-->
+            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/headerImage3"-->
-<!--            android:layout_width="65dp"-->
-<!--            android:layout_height="7dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:alpha="0.5"-->
-<!--            android:scaleX="1.5"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/headerImage4"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/headerImage2"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@android:drawable/button_onoff_indicator_off" />-->
+        <ImageView
+            android:id="@+id/headerImage3"
+            android:layout_width="65dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="20dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintEnd_toStartOf="@+id/headerImage4"
+            app:layout_constraintStart_toEndOf="@+id/headerImage2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/headerImage2"-->
-<!--            android:layout_width="65dp"-->
-<!--            android:layout_height="7dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:alpha="0.5"-->
-<!--            android:scaleX="1.5"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/headerImage3"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/headerImage1"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@android:drawable/button_onoff_indicator_off" />-->
+        <ImageView
+            android:id="@+id/headerImage2"
+            android:layout_width="65dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="20dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintEnd_toStartOf="@+id/headerImage3"
+            app:layout_constraintStart_toEndOf="@+id/headerImage1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/headerImage5"-->
-<!--            android:layout_width="65dp"-->
-<!--            android:layout_height="7dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:alpha="0.5"-->
-<!--            android:scaleX="1.5"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/headerImage6"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/headerImage4"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@android:drawable/button_onoff_indicator_off" />-->
+        <ImageView
+            android:id="@+id/headerImage5"
+            android:layout_width="65dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="20dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintEnd_toStartOf="@+id/headerImage6"
+            app:layout_constraintStart_toEndOf="@+id/headerImage4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/headerImage4"-->
-<!--            android:layout_width="65dp"-->
-<!--            android:layout_height="7dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:alpha="0.5"-->
-<!--            android:scaleX="1.5"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/headerImage5"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/headerImage3"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@android:drawable/button_onoff_indicator_off" />-->
+        <ImageView
+            android:id="@+id/headerImage4"
+            android:layout_width="65dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="20dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintEnd_toStartOf="@+id/headerImage5"
+            app:layout_constraintStart_toEndOf="@+id/headerImage3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/headerImage6"-->
-<!--            android:layout_width="65dp"-->
-<!--            android:layout_height="7dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:alpha="0.5"-->
-<!--            android:scaleX="1.5"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/topSongsHeader"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/headerImage5"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@android:drawable/button_onoff_indicator_off" />-->
+        <ImageView
+            android:id="@+id/headerImage6"
+            android:layout_width="65dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintEnd_toEndOf="@+id/topSongsHeader"
+            app:layout_constraintStart_toEndOf="@+id/headerImage5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/button_onoff_indicator_off" />
 
-<!--        -->
+
 
         <TextView
             android:id="@+id/topSongsTitle"
@@ -135,6 +124,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topSongsHeader"
             app:layout_constraintVertical_bias="0.033" />
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@null"/>
 
         <TextView
             android:id="@+id/textView19"

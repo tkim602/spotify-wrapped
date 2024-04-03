@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.media.MediaPlayer;
 
 import androidx.annotation.NonNull;
 import com.example.spotifywrapped.Interfaces.Personalization;
@@ -27,6 +28,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import android.util.Log;
 import android.widget.Toast;
+import java.io.IOException;
 
 
 public class TopSongs extends AppCompatActivity {
@@ -40,6 +42,8 @@ public class TopSongs extends AppCompatActivity {
     private TextView[] songTextViews = new TextView[6];
     private int accountId;
     private Retrofit retrofit;
+    private MediaPlayer mediaPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +133,34 @@ public class TopSongs extends AppCompatActivity {
             Track track = tracks.get(i);
             songTextViews[i].setText(track.getName());
             Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
+            if (i == 0) {
+                playTopTrack(track.getPreviewUrl());
+            }
+        }
+    }
+    private void playTopTrack(String url) {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(url);
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(MediaPlayer::start);
+        } catch (IOException e) {
+            Log.e("TopSongs", "Error setting data source for MediaPlayer", e);
+            Toast.makeText(this, "Unable to play the top track.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
     }
 }

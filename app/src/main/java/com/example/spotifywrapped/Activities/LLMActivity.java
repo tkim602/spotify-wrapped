@@ -1,10 +1,12 @@
 package com.example.spotifywrapped.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,13 +54,25 @@ public class LLMActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_llm);
 
-        Bundle bundle = getIntent().getExtras();
-        token = bundle.getString("accountToken");
+        Bundle gbundle = getIntent().getExtras();
+        token = gbundle.getString("accountToken");
+        int accountId = gbundle.getInt("accountID");
         
         //Get Layout Items
         dropdown = (Spinner) findViewById(R.id.llm_dropdown);
         output = (TextView) findViewById(R.id.llm_result_text);
         submit = (Button) findViewById(R.id.llm_generate_button);
+        ImageButton exitBtn = (ImageButton) findViewById(R.id.llm_exitBtn);
+
+        exitBtn.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", token);
+            bundle.putInt("accountID", accountId);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle);
+            startActivity(i);
+
+        });
 
         String[] options = new String[]{"Act", "Think", "Dress"};
 

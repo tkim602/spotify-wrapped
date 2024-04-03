@@ -6,6 +6,7 @@ public class Track {
     private String name;
     private Album album;
     private List<Artist> artists;
+    private String preview_url;
 
     // Getter and setter
     public String getName() {
@@ -30,5 +31,12 @@ public class Track {
 
     public void setArtists(List<Artist> artists) {
         this.artists = artists;
+    }
+
+    public String getPreviewUrl() {
+        return preview_url;
+    }
+    public void setPreview_url(String preview_url) {
+        this.preview_url = preview_url;
     }
 }

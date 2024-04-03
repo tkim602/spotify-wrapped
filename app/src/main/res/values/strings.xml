@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">SpotifyWrapped</string>
     <string name="gen_text">Generate a summary of your listened music!</string>
-    <string name="top_art">Top Artists</string>
-    <string name="top_song">Top Songs</string>
+    <string name="top_art">Top Artists!</string>
+    <string name="top_song">Top Songs!</string>
+    <string name="game_one">Guess the Song!</string>
+    <string name="game_two">Guess the Artist!</string>
+    <string name="summary"> Your Summary!</string>
     <string-array name="times">
-        <item>Past Week</item>
         <item>Past Month</item>
+        <item>Past Six Months</item>
         <item>Past Year</item>
-        <item>All Time</item>
     </string-array>
 </resources>

@@ -43,33 +43,26 @@ public class GameTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_two);
-        Bundle bundle = getIntent().getExtras();
-        AccessToken = bundle.getString("accountToken");
-        time_range = bundle.getString("timeFrame");
+        Bundle gbundle = getIntent().getExtras();
+        AccessToken = gbundle.getString("accountToken");
+        time_range = gbundle.getString("timeFrame");
         exitButton = findViewById(R.id.exitButton);
         nextButton = findViewById(R.id.nextButton);
-
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("accountToken", AccessToken);
-                Intent i = new Intent(getApplicationContext(), Homepage.class);
-                i.putExtras(bundle);
-                startActivity(i);
-            }
+        exitButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", AccessToken);
+            Intent i = new Intent(getApplicationContext(), Generate.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("accountToken", AccessToken);
-                bundle.putString("timeFrame", time_range);
-                Intent i = new Intent(getApplicationContext(), Summary.class);
-                i.putExtras(bundle);
-                startActivity(i);
-            }
+        nextButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", AccessToken);
+            bundle.putString("timeFrame", time_range);
+            Intent i = new Intent(getApplicationContext(), Summary.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
 
         setupRetrofit();

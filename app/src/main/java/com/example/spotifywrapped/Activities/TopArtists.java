@@ -43,9 +43,9 @@ public class TopArtists extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.top_artists);
-        Bundle bundle = getIntent().getExtras();
-        AccessToken = bundle.getString("accountToken");
-        time_range = bundle.getString("timeFrame");
+        Bundle gbundle = getIntent().getExtras();
+        AccessToken = gbundle.getString("accountToken");
+        time_range = gbundle.getString("timeFrame");
         exitButton = findViewById(R.id.imageButton2);
         nextButton = findViewById(R.id.nextButton);
         // View bindings and initialize them
@@ -63,29 +63,22 @@ public class TopArtists extends AppCompatActivity {
         artistTextViews[4] = findViewById(R.id.artist5_name);
         artistTextViews[5] = findViewById(R.id.artist6_name);
 
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("accountToken", AccessToken);
-                Intent i = new Intent(getApplicationContext(), Homepage.class);
-                i.putExtras(bundle);
-                startActivity(i);
-            }
+        exitButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", AccessToken);
+            Intent i = new Intent(getApplicationContext(), Generate.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("accountToken", AccessToken);
-                bundle.putString("timeFrame", time_range);
-                Intent i = new Intent(getApplicationContext(), GameOne.class);
-                i.putExtras(bundle);
-                startActivity(i);
-            }
+        nextButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", AccessToken);
+            bundle.putString("timeFrame", time_range);
+            Intent i = new Intent(getApplicationContext(), GameOne.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
-
         setupRetrofit();
         loadTopArtists();
     }

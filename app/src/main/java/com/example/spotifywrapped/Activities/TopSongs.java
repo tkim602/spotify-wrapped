@@ -72,6 +72,13 @@ public class TopSongs extends AppCompatActivity {
 
 
         exitButton.setOnClickListener((v) -> {
+            if (mediaPlayer != null) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
             bundle.putInt("accountID", accountId);
@@ -82,6 +89,13 @@ public class TopSongs extends AppCompatActivity {
         });
 
         nextButton.setOnClickListener((v) -> {
+            if (mediaPlayer != null) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
             bundle.putString("timeFrame", time_range);

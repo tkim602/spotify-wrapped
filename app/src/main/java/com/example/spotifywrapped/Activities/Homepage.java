@@ -72,6 +72,7 @@ public class Homepage extends AppCompatActivity {
         Button displayDataBtn = (Button) findViewById(R.id.display_data);
         Button generateBtn = (Button) findViewById(R.id.generate_button);
         Button settingsBtn = (Button) findViewById(R.id.settings_button);
+        Button llmBtn = (Button) findViewById(R.id.llm_button);
 
         // Set the click listeners for the buttons
         logInBtn.setOnClickListener((v) -> {
@@ -85,6 +86,8 @@ public class Homepage extends AppCompatActivity {
             }
             dataView.setText(result);
         }));
+
+
 
         System.out.println("hi, you're here now");
 
@@ -129,6 +132,14 @@ public class Homepage extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putInt("accountID", accountID);
             Intent i = new Intent(getApplicationContext(), Settings.class);
+            i.putExtras(bundle);
+            startActivity(i);
+        });
+        llmBtn.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            bundle.putString("accountToken", currAccount.getAccountToken());
+            Intent i = new Intent(getApplicationContext(), LLMActivity.class);
             i.putExtras(bundle);
             startActivity(i);
         });

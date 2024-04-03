@@ -51,7 +51,7 @@ public class Homepage extends AppCompatActivity {
     private int accountID;
 
     private Account currAccount;
-    private TextView tokenTextView, codeTextView, profileTextView,dataView, nameView;
+    private TextView tokenTextView, codeTextView, profileTextView, dataView, nameView;
     private EditText email;
     private EditText password;
 
@@ -63,28 +63,23 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.home_page);
 
         // Initialize the views
-        tokenTextView = (TextView) findViewById(R.id.token_text_view);
         dataView = (TextView) findViewById(R.id.accounts_as_string);
         nameView = (TextView) findViewById(R.id.name_homepage);
 
         // Initialize the buttons
-        Button logInBtn = (Button) findViewById(R.id.login_btn);
         Button displayDataBtn = (Button) findViewById(R.id.display_data);
         Button generateBtn = (Button) findViewById(R.id.generate_button);
         Button settingsBtn = (Button) findViewById(R.id.settings_button);
-
-        // Set the click listeners for the buttons
-        logInBtn.setOnClickListener((v) -> {
-            getLoginInfo();
-        });
+        Button llmBtn = (Button) findViewById(R.id.llm_button);
 
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
-            for(Account a: accountArrayList) {
+            for (Account a : accountArrayList) {
                 result += a.toString();
             }
             dataView.setText(result);
         }));
+
 
         System.out.println("hi, you're here now");
 
@@ -96,7 +91,7 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onChanged(List<Account> accounts) {
                 accountArrayList.clear();
-                for(Account a: accounts) {
+                for (Account a : accounts) {
                     accountArrayList.add(a);
                 }
 
@@ -105,7 +100,7 @@ public class Homepage extends AppCompatActivity {
 
                 for (Account a : accountArrayList) {
                     System.out.println(a.getAccountEmail());
-                    if (a.getAccountID()==accountID) {
+                    if (a.getAccountID() == accountID) {
                         currAccount = a;
                         break;
                     }
@@ -116,7 +111,7 @@ public class Homepage extends AppCompatActivity {
 
             }
         });
-        generateBtn.setOnClickListener((v)->{
+        generateBtn.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
             bundle.putInt("accountID", accountID);
             bundle.putString("accountToken", mAccessToken);
@@ -125,13 +120,22 @@ public class Homepage extends AppCompatActivity {
             startActivity(i);
 
         });
-        settingsBtn.setOnClickListener((v)->{
+        settingsBtn.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
             bundle.putInt("accountID", accountID);
             Intent i = new Intent(getApplicationContext(), Settings.class);
             i.putExtras(bundle);
             startActivity(i);
         });
+        llmBtn.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            bundle.putString("accountToken", currAccount.getAccountToken());
+            Intent i = new Intent(getApplicationContext(), LLMActivity.class);
+            i.putExtras(bundle);
+            startActivity(i);
+        });
+        getLoginInfo();
     }
 
     /**
@@ -203,7 +207,7 @@ public class Homepage extends AppCompatActivity {
      * Creates a UI thread to update a TextView in the background
      * Reduces UI latency and makes the system perform more consistently
      *
-     * @param text the text to set
+     * @param text     the text to set
      * @param textView TextView object to update
      */
     private void setTextAsync(final String text, TextView textView) {
@@ -219,7 +223,7 @@ public class Homepage extends AppCompatActivity {
     private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
         return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
                 .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email", "ugc-image-upload", "user-read-playback-state", "user-modify-playback-state","user-read-currently-playing","app-remote-control","streaming","playlist-read-private","playlist-read-collaborative","playlist-modify-private","playlist-modify-public","user-follow-modify","user-follow-read","user-read-playback-position","user-top-read","user-read-recently-played","user-library-modify","user-library-read","user-read-private"}) // <--- Change the scope of your requested token here
+                .setScopes(new String[]{"user-read-email", "ugc-image-upload", "user-read-playback-state", "user-modify-playback-state", "user-read-currently-playing", "app-remote-control", "streaming", "playlist-read-private", "playlist-read-collaborative", "playlist-modify-private", "playlist-modify-public", "user-follow-modify", "user-follow-read", "user-read-playback-position", "user-top-read", "user-read-recently-played", "user-library-modify", "user-library-read", "user-read-private"}) // <--- Change the scope of your requested token here
                 .setCampaign("your-campaign-token")
                 .build();
     }

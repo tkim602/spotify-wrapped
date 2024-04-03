@@ -117,7 +117,6 @@ public class TopSongs extends AppCompatActivity {
     }
 
     private void loadTopTracks() {
-        // dont know how to access to mAccessToken
         String authToken = "Bearer " + AccessToken;
 
         Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken, time_range);

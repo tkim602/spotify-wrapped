@@ -35,6 +35,7 @@ import okhttp3.Response;
 public class Generate extends AppCompatActivity {
     private Call mCall;
     private String mAccessToken;
+    private int accountId;
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
 
@@ -55,16 +56,18 @@ public class Generate extends AppCompatActivity {
         //Initialize the spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner_generate);
 
-        Bundle bundle = getIntent().getExtras();
-        mAccessToken = bundle.getString("accountToken");
+        Bundle gbundle = getIntent().getExtras();
+        mAccessToken = gbundle.getString("accountToken");
+        accountId = gbundle.getInt("accountID");
         System.out.println("Generate Token:" + mAccessToken);
         //Set click listeners for "x" button
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Generate.this, Homepage.class);
-                startActivity(intent);
-            }
+        imgButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", mAccessToken);
+            bundle.putInt("accountID", accountId);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
         //Set click listener for spinner (drop down menu)
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -105,6 +108,7 @@ public class Generate extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("accountToken", mAccessToken);
         bundle.putString("timeFrame", time_range);
+        bundle.putInt("accountID", accountId);
         Intent i = new Intent(Generate.this, TopSongs.class);
         i.putExtras(bundle);
         startActivity(i);

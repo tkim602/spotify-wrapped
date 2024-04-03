@@ -32,7 +32,7 @@ public class TopArtists extends AppCompatActivity {
     private String time_range;
     private ImageView[] artistImageViews = new ImageView[6];
     private TextView[] artistTextViews = new TextView[6];
-
+    private int accountId;
     private ImageButton exitButton;
 
     private ImageButton nextButton;
@@ -46,6 +46,7 @@ public class TopArtists extends AppCompatActivity {
         Bundle gbundle = getIntent().getExtras();
         AccessToken = gbundle.getString("accountToken");
         time_range = gbundle.getString("timeFrame");
+        accountId = gbundle.getInt("accountID");
         exitButton = findViewById(R.id.imageButton2);
         nextButton = findViewById(R.id.nextButton);
         // View bindings and initialize them
@@ -66,6 +67,7 @@ public class TopArtists extends AppCompatActivity {
         exitButton.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
+            bundle.putInt("accountID", accountId);
             Intent i = new Intent(getApplicationContext(), Generate.class);
             i.putExtras(bundle);
             startActivity(i);
@@ -75,6 +77,7 @@ public class TopArtists extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
             bundle.putString("timeFrame", time_range);
+            bundle.putInt("accountID", accountId);
             Intent i = new Intent(getApplicationContext(), GameOne.class);
             i.putExtras(bundle);
             startActivity(i);

@@ -38,7 +38,7 @@ public class TopSongs extends AppCompatActivity {
 
     private ImageView[] songImageViews = new ImageView[6];
     private TextView[] songTextViews = new TextView[6];
-
+    private int accountId;
     private Retrofit retrofit;
 
     @Override
@@ -47,6 +47,7 @@ public class TopSongs extends AppCompatActivity {
         setContentView(R.layout.top_songs2);
         Bundle gbundle = getIntent().getExtras();
         AccessToken = gbundle.getString("accountToken");
+        accountId = gbundle.getInt("accountID");
         time_range = gbundle.getString("timeFrame");
         // View bindings and initialize them
         songImageViews[0] = findViewById(R.id.song1);
@@ -69,6 +70,7 @@ public class TopSongs extends AppCompatActivity {
         exitButton.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
+            bundle.putInt("accountID", accountId);
             Intent i = new Intent(getApplicationContext(), Generate.class);
             i.putExtras(bundle);
             startActivity(i);
@@ -79,6 +81,7 @@ public class TopSongs extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
             bundle.putString("timeFrame", time_range);
+            bundle.putInt("accountID", accountId);
             Intent i = new Intent(getApplicationContext(), TopArtists.class);
             i.putExtras(bundle);
             startActivity(i);

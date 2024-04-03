@@ -36,6 +36,7 @@ public class Summary extends AppCompatActivity {
     private ImageButton exitButton;
 
     private ImageButton nextButton;
+    private int accountId;
 
     private Retrofit retrofit;
 
@@ -46,12 +47,14 @@ public class Summary extends AppCompatActivity {
         Bundle gbundle = getIntent().getExtras();
         AccessToken = gbundle.getString("accountToken");
         time_range = gbundle.getString("timeFrame");
+        accountId = gbundle.getInt("accountID");
         exitButton = findViewById(R.id.exitButton);
         nextButton = findViewById(R.id.nextButton);
 
         exitButton.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
+            bundle.putInt("accountID", accountId);
             Intent i = new Intent(getApplicationContext(), Homepage.class);
             i.putExtras(bundle);
             startActivity(i);
@@ -61,6 +64,7 @@ public class Summary extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
             bundle.putString("timeFrame", time_range);
+            bundle.putInt("accountID", accountId);
             Intent i = new Intent(getApplicationContext(), Homepage.class);
             i.putExtras(bundle);
             startActivity(i);

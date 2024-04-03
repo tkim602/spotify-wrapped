@@ -48,6 +48,9 @@
             android:name=".Activities.Generate"
             android:exported="false" />
         <activity
+            android:name=".Activities.Gallery"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
             android:exported="true" />
         <activity

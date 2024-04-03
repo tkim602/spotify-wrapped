@@ -71,6 +71,7 @@ public class Homepage extends AppCompatActivity {
         Button generateBtn = (Button) findViewById(R.id.generate_button);
         Button settingsBtn = (Button) findViewById(R.id.settings_button);
         Button llmBtn = (Button) findViewById(R.id.llm_button);
+        Button galleryBtn = (Button) findViewById(R.id.gallery_button);
 
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
@@ -135,6 +136,17 @@ public class Homepage extends AppCompatActivity {
             i.putExtras(bundle);
             startActivity(i);
         });
+
+        galleryBtn.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", accountID);
+            bundle.putString("location", "home");
+            bundle.putString("accountToken", mAccessToken);
+            Intent i = new Intent(getApplicationContext(), Gallery.class);
+            i.putExtras(bundle);
+            startActivity(i);
+        });
+
         getLoginInfo();
 
     }

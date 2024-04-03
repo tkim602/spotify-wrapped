@@ -57,6 +57,7 @@ public class Generate extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         mAccessToken = bundle.getString("accountToken");
+        System.out.println("Generate Token:" + mAccessToken);
         //Set click listeners for "x" button
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override

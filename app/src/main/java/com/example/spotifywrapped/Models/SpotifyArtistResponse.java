@@ -13,6 +13,4 @@ public class SpotifyArtistResponse {
     public void setItems(List<Artist> items) {
         this.items = items;
     }
-
-
 }

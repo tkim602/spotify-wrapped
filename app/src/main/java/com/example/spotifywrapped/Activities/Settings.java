@@ -66,6 +66,8 @@ public class Settings extends AppCompatActivity {
 
         Button saveButton = (Button) findViewById(R.id.save_changes);
         saveButton.setOnClickListener((v)->{
+            Bundle bundle = new Bundle();
+            bundle.putInt("accountID", currAccount.getAccountID());
             String editedEmail = editEmail.getText().toString();
             String editedPassword = editPassword.getText().toString();
             editEmail.setText("");
@@ -73,6 +75,9 @@ public class Settings extends AppCompatActivity {
             currAccount.setAccountEmail(editedEmail);
             currAccount.setAccountPassword(editedPassword);
             spotifyWrappedViewModel.updateAccount(currAccount);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
 
         Button deleteButton = (Button) findViewById(R.id.delete_account);

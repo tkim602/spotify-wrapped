@@ -64,8 +64,9 @@ public class Summary extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("accountToken", AccessToken);
             bundle.putString("timeFrame", time_range);
+            bundle.putString("location", "summary");
             bundle.putInt("accountID", accountId);
-            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            Intent i = new Intent(getApplicationContext(), Gallery.class);
             i.putExtras(bundle);
             startActivity(i);
         });

@@ -102,7 +102,7 @@ public class TopSongs extends AppCompatActivity {
         // dont know how to access to mAccessToken
         String authToken = "Bearer " + AccessToken;
 
-        Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken);
+        Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken, time_range);
         call.enqueue(new Callback<SpotifyTrackResponse>() {
             @Override
             public void onResponse(@NonNull Call<SpotifyTrackResponse> call, @NonNull Response<SpotifyTrackResponse> response) {

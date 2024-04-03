@@ -97,7 +97,7 @@ public class TopArtists extends AppCompatActivity {
     private void loadTopArtists() {
         String authToken = "Bearer " + AccessToken;
 
-        Call<SpotifyArtistResponse> call = personalizationService.getTopArtists(authToken);
+        Call<SpotifyArtistResponse> call = personalizationService.getTopArtists(authToken, time_range);
         call.enqueue(new Callback<SpotifyArtistResponse>() {
             @Override
             public void onResponse(@NonNull Call<SpotifyArtistResponse> call, @NonNull Response<SpotifyArtistResponse> response) {

@@ -136,6 +136,7 @@ public class Homepage extends AppCompatActivity {
             startActivity(i);
         });
         getLoginInfo();
+
     }
 
     /**

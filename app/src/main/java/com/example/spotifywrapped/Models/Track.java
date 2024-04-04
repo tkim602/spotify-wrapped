@@ -8,6 +8,8 @@ public class Track {
     private List<Artist> artists;
     private String preview_url;
 
+    private int duration_ms;
+
     // Getter and setter
     public String getName() {
         return name;
@@ -38,5 +40,12 @@ public class Track {
     }
     public void setPreview_url(String preview_url) {
         this.preview_url = preview_url;
+    }
+
+    public int getDurationMs() {
+        return duration_ms;
+    }
+    public void setDurationMs(int duration_ms) {
+        this.duration_ms = duration_ms;
     }
 }

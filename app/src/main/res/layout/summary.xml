@@ -34,89 +34,164 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
         <ImageView
             android:id="@+id/segment1"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_weight="1"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white"
             android:scaleX="1.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/custom_progress_bg"
-            android:backgroundTint="@color/white" />
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
-            android:id="@+id/segment2"
-            android:layout_width="30dp"
-            android:layout_height="11dp"
-            android:layout_weight="1"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment1"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/custom_progress_bg"
-            android:backgroundTint="@color/white"
-            />
-        <ImageView
-            android:id="@+id/segment3"
-            android:layout_width="30dp"
-            android:layout_height="11dp"
-            android:layout_weight="1"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment2"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/custom_progress_bg"
-            android:backgroundTint="@color/white"
-            />
+            android:id="@+id/artistImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="116dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/segment6"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/minutesToBeUpdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="minutes"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.136"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minutesListened"
+            app:layout_constraintVertical_bias="0.104" />
+
+        <TextView
+            android:id="@+id/genretobeupdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genre"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.724"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topGenre"
+            app:layout_constraintVertical_bias="0.168" />
+
+        <TextView
+            android:id="@+id/minutesListened"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="192dp"
+            android:text="Minutes\nListened"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistImage"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/topArtistTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top Artist"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.72"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistImage"
+            app:layout_constraintVertical_bias="0.095" />
+
+        <TextView
+            android:id="@+id/TopSongTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top Songs"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistImage"
+            app:layout_constraintVertical_bias="0.095" />
+
+        <TextView
+            android:id="@+id/topGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="144dp"
+            android:text="Top\nGenre"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.669"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistImage"
+            app:layout_constraintVertical_bias="1.0" />
+
         <ImageView
             android:id="@+id/segment4"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_weight="1"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment3"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1"
             android:background="@drawable/custom_progress_bg"
             android:backgroundTint="@color/white"
-            />
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment1"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/segment5"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_weight="1"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white"
             android:scaleX="1.5"
             app:layout_constraintStart_toEndOf="@id/segment4"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/custom_progress_bg"
-            android:backgroundTint="@color/white"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/segment6"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_weight="1"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
-            android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment5"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1"
             android:background="@drawable/custom_progress_bg"
             android:backgroundTint="@color/white"
-            />
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment5"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/SummaryHeader"
@@ -139,8 +214,344 @@
             android:background="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/summaryHeader" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/summaryHeader"
+            app:layout_constraintVertical_bias="0.0" />
 
+        <TextView
+            android:id="@+id/topartist1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.0" />
 
+        <TextView
+            android:id="@+id/topartist2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.187" />
+
+        <TextView
+            android:id="@+id/topartist3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.375" />
+
+        <TextView
+            android:id="@+id/topartist4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.562" />
+
+        <TextView
+            android:id="@+id/topartist5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topartist6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.937" />
+
+        <TextView
+            android:id="@+id/topsong1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/topsong_update1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update1"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toEndOf="@+id/topsong1"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/topartist_update1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update1"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/topartist_update2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.187" />
+
+        <TextView
+            android:id="@+id/topartist_update3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update3"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.375" />
+
+        <TextView
+            android:id="@+id/topartist_update4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update4"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.562" />
+
+        <TextView
+            android:id="@+id/topartist_update5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update5"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topartist_update6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.937" />
+
+        <TextView
+            android:id="@+id/topsong_update2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toEndOf="@+id/topsong2"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.187" />
+
+        <TextView
+            android:id="@+id/topsong_update3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update3"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toEndOf="@+id/topsong3"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.375" />
+
+        <TextView
+            android:id="@+id/topsong_update4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update4"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toEndOf="@+id/topsong4"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.562" />
+
+        <TextView
+            android:id="@+id/topsong_update5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update5"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.025"
+            app:layout_constraintStart_toEndOf="@+id/topsong5"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topsong_update6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.025"
+            app:layout_constraintStart_toEndOf="@+id/topsong6"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.937" />
+
+        <TextView
+            android:id="@+id/topsong2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.187" />
+
+        <TextView
+            android:id="@+id/topsong3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.375" />
+
+        <TextView
+            android:id="@+id/topsong4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.562" />
+        <TextView
+            android:id="@+id/topsong5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topsong6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.937" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

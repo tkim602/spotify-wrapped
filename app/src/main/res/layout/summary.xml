@@ -37,9 +37,9 @@
 
         <ImageView
             android:id="@+id/segment1"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
@@ -47,34 +47,6 @@
             android:backgroundTint="@color/white"
             android:scaleX="1.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/segment2"
-            android:layout_width="30dp"
-            android:layout_height="11dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_progress_bg"
-            android:backgroundTint="@color/white"
-            android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/segment3"
-            android:layout_width="30dp"
-            android:layout_height="11dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/custom_progress_bg"
-            android:backgroundTint="@color/white"
-            android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -182,23 +154,23 @@
 
         <ImageView
             android:id="@+id/segment4"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/custom_progress_bg"
             android:backgroundTint="@color/white"
             android:scaleX="1.5"
-            app:layout_constraintStart_toEndOf="@id/segment3"
+            app:layout_constraintStart_toEndOf="@id/segment1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/segment5"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
@@ -210,9 +182,9 @@
 
         <ImageView
             android:id="@+id/segment6"
-            android:layout_width="30dp"
+            android:layout_width="53dp"
             android:layout_height="11dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"

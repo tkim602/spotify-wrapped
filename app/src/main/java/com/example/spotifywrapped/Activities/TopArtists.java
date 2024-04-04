@@ -98,7 +98,7 @@ public class TopArtists extends AppCompatActivity {
             bundle.putString("accountToken", AccessToken);
             bundle.putString("timeFrame", time_range);
             bundle.putInt("accountID", accountId);
-            Intent i = new Intent(getApplicationContext(), GameOne.class);
+            Intent i = new Intent(getApplicationContext(), Summary.class);
             i.putExtras(bundle);
             startActivity(i);
         });

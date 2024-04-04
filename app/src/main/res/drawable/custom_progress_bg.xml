@@ -6,11 +6,4 @@
             <solid android:color="#D2EDFC"/>
         </shape>
     </item>
-
-    <item android:id="@android:id/progress">
-        <shape android:shape="rectangle">
-            <corners android:radius="40dp"/>
-            <solid android:color="#8CECE4"/>
-        </shape>
-    </item>
 </layer-list>

@@ -91,6 +91,7 @@ public class LLMActivity extends AppCompatActivity {
             }
         });
         submit.setOnClickListener(v -> {
+            output.setText("Loading...");
             getTopArtists();
         });
 

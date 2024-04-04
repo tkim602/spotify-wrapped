@@ -13,6 +13,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/black_patterns"
     android:orientation="vertical">
 
     <ImageButton
@@ -39,6 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:translationY="-50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
 
@@ -92,6 +95,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/llm_generate_button"
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/llm_result_text"
                 android:layout_width="match_parent"
@@ -105,6 +112,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/llm_generate_button"
                 app:layout_constraintVertical_bias="0.0" />
+        </androidx.core.widget.NestedScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

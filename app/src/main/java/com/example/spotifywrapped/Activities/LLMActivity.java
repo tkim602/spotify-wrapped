@@ -98,7 +98,7 @@ public class LLMActivity extends AppCompatActivity {
     }
 
     private void generateLLMText(String input) {
-        String template = String.format("Describe how someone that listens to the following music might %s. These are the top tracks that the user has listened to: %s", selectedOption, input);
+        String template = String.format("Give me a 3 sentence short aesthetic description of how someone that listens to the following music might %s. These are the top tracks that the user has listened to: %s", selectedOption, input);
         GenerativeModel gm = new GenerativeModel("gemini-1.0-pro", geminiAPIKey);
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
         Content content = new Content.Builder().addText(template).build();

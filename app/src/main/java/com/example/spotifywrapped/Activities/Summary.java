@@ -168,8 +168,8 @@ public class Summary extends AppCompatActivity {
         for (int i = 0; i < limit; i++) {
             Artist artist = artists.get(i);
             artistTextViews[i].setText(artist.getName());
-            if (i == 0 && artist.getUrl() != null) {
-                Glide.with(this).load(artist.getUrl()).into(artistImageView);
+            if ((artist != null) && (i == 0)) {
+                Glide.with(this).load(artist.getImages().get(0).getUrl()).into(artistImageView);
             }
         }
     }

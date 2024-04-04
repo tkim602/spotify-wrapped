@@ -35,8 +35,10 @@ import okhttp3.Response;
 public class Generate extends AppCompatActivity {
     private Call mCall;
     private String mAccessToken;
+    private int accountId;
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
+
     public static final String CLIENT_ID = "306fb5543abb4f23b00ae1a5d1d70886";
     public static final String REDIRECT_URI = "spotifywrapped://auth";
 
@@ -54,15 +56,18 @@ public class Generate extends AppCompatActivity {
         //Initialize the spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner_generate);
 
-        Bundle bundle = getIntent().getExtras();
-        mAccessToken = bundle.getString("accountToken");
+        Bundle gbundle = getIntent().getExtras();
+        mAccessToken = gbundle.getString("accountToken");
+        accountId = gbundle.getInt("accountID");
+        System.out.println("Generate Token:" + mAccessToken);
         //Set click listeners for "x" button
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Generate.this, Homepage.class);
-                startActivity(intent);
-            }
+        imgButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", mAccessToken);
+            bundle.putInt("accountID", accountId);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
         //Set click listener for spinner (drop down menu)
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,11 +78,14 @@ public class Generate extends AppCompatActivity {
                     case "Past Month":
                         time_range = "short_term";
                         break;
-                    case "All Time":
-                        time_range = "long_term";
+                    case "Past Six Months":
+                        time_range = "medium_term";
+                        break;
+                    case "Past Year":
+                        time_range = "long_term"; //just for testing purpose
                         break;
                     default:
-                        time_range = "medium_term"; //just for testing purpose
+                        time_range = "medium_term";
                         break;
                 }
             }
@@ -100,6 +108,7 @@ public class Generate extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("accountToken", mAccessToken);
         bundle.putString("timeFrame", time_range);
+        bundle.putInt("accountID", accountId);
         Intent i = new Intent(Generate.this, TopSongs.class);
         i.putExtras(bundle);
         startActivity(i);

@@ -44,6 +44,7 @@ public class TopArtists extends AppCompatActivity {
     private Retrofit retrofit;
 
     private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,7 +122,11 @@ public class TopArtists extends AppCompatActivity {
             public void onResponse(@NonNull Call<SpotifyTrackResponse> call1, @NonNull Response<SpotifyTrackResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Track> tracks = response.body().getItems();
-                    playTopTrack(tracks.get(1).getPreviewUrl());
+                    if (tracks.get(1).getPreviewUrl() != null) {
+                        playTopTrack(tracks.get(1).getPreviewUrl());
+                    } else {
+                        System.out.println("Preview URL in TopArtists is null.");
+                    }
                 } else {
                     Log.e("TopSongs", "API request failed with code: " + response.code());
                     Toast.makeText(TopArtists.this, "Error loading top songs. Please try again later.", Toast.LENGTH_LONG).show();
@@ -166,6 +171,7 @@ public class TopArtists extends AppCompatActivity {
             }
         }
     }
+
     private void playTopTrack(String url) {
         if (mediaPlayer != null) {
             mediaPlayer.release();
@@ -180,6 +186,7 @@ public class TopArtists extends AppCompatActivity {
             Toast.makeText(this, "Unable to play the top track.", Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

@@ -273,7 +273,7 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.078" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/topartist2"
@@ -287,7 +287,7 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.187" />
 
         <TextView
             android:id="@+id/topartist3"
@@ -301,7 +301,7 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.453" />
+            app:layout_constraintVertical_bias="0.375" />
 
         <TextView
             android:id="@+id/topartist4"
@@ -315,7 +315,7 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.64" />
+            app:layout_constraintVertical_bias="0.562" />
 
         <TextView
             android:id="@+id/topartist5"
@@ -329,7 +329,21 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.828" />
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topartist6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/topGenre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.937" />
 
         <TextView
             android:id="@+id/topsong1"
@@ -343,7 +357,7 @@
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.07" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/topsong_update1"
@@ -354,10 +368,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/minutesListened"
             app:layout_constraintEnd_toEndOf="@+id/nextButton"
-            app:layout_constraintHorizontal_bias="0.145"
+            app:layout_constraintHorizontal_bias="0.147"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.078" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/topartist_update1"
@@ -368,10 +382,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toEndOf="@+id/topartist1"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.031" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/topartist_update2"
@@ -382,10 +396,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toEndOf="@+id/topartist1"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.106" />
+            app:layout_constraintVertical_bias="0.075" />
 
         <TextView
             android:id="@+id/topartist_update3"
@@ -396,10 +410,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toEndOf="@+id/topartist1"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.181" />
+            app:layout_constraintVertical_bias="0.15" />
 
         <TextView
             android:id="@+id/topartist_update4"
@@ -410,10 +424,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toEndOf="@+id/topartist1"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.256" />
+            app:layout_constraintVertical_bias="0.225" />
 
         <TextView
             android:id="@+id/topartist_update5"
@@ -424,10 +438,24 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toEndOf="@+id/topartist1"
             app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
-            app:layout_constraintVertical_bias="0.331" />
+            app:layout_constraintVertical_bias="0.3" />
+
+        <TextView
+            android:id="@+id/topartist_update6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topartist_update6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/topartist1"
+            app:layout_constraintTop_toBottomOf="@+id/topArtistTitle"
+            app:layout_constraintVertical_bias="0.375" />
 
         <TextView
             android:id="@+id/topsong_update2"
@@ -441,7 +469,7 @@
             app:layout_constraintHorizontal_bias="0.147"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.187" />
 
         <TextView
             android:id="@+id/topsong_update3"
@@ -455,7 +483,7 @@
             app:layout_constraintHorizontal_bias="0.147"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.453" />
+            app:layout_constraintVertical_bias="0.375" />
 
         <TextView
             android:id="@+id/topsong_update4"
@@ -469,7 +497,7 @@
             app:layout_constraintHorizontal_bias="0.147"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.64" />
+            app:layout_constraintVertical_bias="0.562" />
 
         <TextView
             android:id="@+id/topsong_update5"
@@ -483,7 +511,21 @@
             app:layout_constraintHorizontal_bias="0.147"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.828" />
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topsong_update6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="topsong_update6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.937" />
 
         <TextView
             android:id="@+id/topsong2"
@@ -497,7 +539,7 @@
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.187" />
 
         <TextView
             android:id="@+id/topsong3"
@@ -511,7 +553,7 @@
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.453" />
+            app:layout_constraintVertical_bias="0.375" />
 
         <TextView
             android:id="@+id/topsong4"
@@ -525,7 +567,7 @@
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.64" />
+            app:layout_constraintVertical_bias="0.562" />
 
         <TextView
             android:id="@+id/topsong5"
@@ -539,7 +581,35 @@
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.828" />
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topsong5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/topsong6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
+            app:layout_constraintEnd_toEndOf="@+id/nextButton"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
+            app:layout_constraintVertical_bias="0.937" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

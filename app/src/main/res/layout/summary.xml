@@ -553,21 +553,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
             app:layout_constraintVertical_bias="0.562" />
-
-        <TextView
-            android:id="@+id/topsong5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/minutesListened"
-            app:layout_constraintEnd_toEndOf="@+id/nextButton"
-            app:layout_constraintHorizontal_bias="0.062"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TopSongTitle"
-            app:layout_constraintVertical_bias="0.75" />
-
         <TextView
             android:id="@+id/topsong5"
             android:layout_width="wrap_content"

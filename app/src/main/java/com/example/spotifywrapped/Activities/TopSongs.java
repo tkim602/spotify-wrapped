@@ -11,12 +11,16 @@ import android.widget.TextView;
 import android.media.MediaPlayer;
 
 import androidx.annotation.NonNull;
+
 import com.example.spotifywrapped.Interfaces.Personalization;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.spotifywrapped.Models.SpotifyTrackResponse;
 import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
 import com.bumptech.glide.Glide;
+
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,8 +30,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 import android.util.Log;
 import android.widget.Toast;
+
 import java.io.IOException;
 
 
@@ -146,11 +152,12 @@ public class TopSongs extends AppCompatActivity {
             Track track = tracks.get(i);
             songTextViews[i].setText(track.getName());
             Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
-            if (i == 0) {
+            if (i == 0 && track.getPreviewUrl() != null) {
                 playTopTrack(track.getPreviewUrl());
             }
         }
     }
+
     private void playTopTrack(String url) {
         if (mediaPlayer != null) {
             mediaPlayer.release();
@@ -165,6 +172,7 @@ public class TopSongs extends AppCompatActivity {
             Toast.makeText(this, "Unable to play the top track.", Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/black_patterns">
 
     <TextView
         android:id="@+id/accounts_as_string"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Placeholder"
+        android:textColor="#FFFFFF"
         android:textSize="10sp"
-        android:text="Placeholder" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/display_data"
@@ -38,15 +41,16 @@
                 android:id="@+id/welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="16dp"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="sans-serif-medium"
+                android:paddingStart="16dp"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
                 android:text="Welcome,"
                 android:textColor="#000000"
                 android:textSize="33sp"
-                app:layout_constraintBottom_toTopOf="@+id/generate_button"
-                android:layout_gravity="center_horizontal" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/generate_button" />
 
             <TextView
                 android:id="@+id/name_homepage"

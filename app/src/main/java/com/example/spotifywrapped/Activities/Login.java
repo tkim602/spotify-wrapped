@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putInt("accountID", accountID);
-                Intent i = new Intent(getApplicationContext(), Homepage.class);
+                Intent i = new Intent(getApplicationContext(), login_load.class);
                 i.putExtras(bundle);
                 startActivity(i);
             }

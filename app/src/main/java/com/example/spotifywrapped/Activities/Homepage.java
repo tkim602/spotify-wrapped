@@ -111,7 +111,6 @@ public class Homepage extends AppCompatActivity {
 
                 String firstName = currAccount.getAccountName().split(" ")[0];
                 nameView.setText(firstName + "!");
-
             }
         });
         generateBtn.setOnClickListener((v) -> {

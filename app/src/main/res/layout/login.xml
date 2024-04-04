@@ -4,14 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3CFFFFFF"
+    android:background="@drawable/black_patterns"
     android:gravity="center"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="240dp"
+        android:layout_height="126dp"
+        android:translationY="-50dp"
+        app:srcCompat="@drawable/spotify_logo_rgb_white" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
+        android:translationY="-50dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
 
@@ -67,4 +75,5 @@
                 app:cornerRadius="20dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>

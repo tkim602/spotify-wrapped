@@ -34,6 +34,9 @@
             android:name=".Activities.TopArtists"
             android:exported="false" />
         <activity
+            android:name=".Activities.login_load"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Homepage"
             android:exported="true" >
             <intent-filter>

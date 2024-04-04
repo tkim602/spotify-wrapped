@@ -7,7 +7,14 @@ public class Artist {
     private String url;
     private List<Image> images;
 
+    private List<String> genres;
 
+    public List<String> getGenres() {
+        return genres;
+    }
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
+    }
     // Getter and setter
     public String getName() {
         return name;

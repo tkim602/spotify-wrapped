@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.SpotifyWrapped"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Activities.LLMActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.Settings"
             android:exported="false" />
@@ -22,34 +27,54 @@
         <activity
             android:name=".Activities.Login"
             android:exported="false" />
-        <activity android:name=".Activities.TopSongs"
+        <activity
+            android:name=".Activities.TopSongs"
             android:exported="false" />
-        <activity android:name=".Activities.TopArtists"
+        <activity
+            android:name=".Activities.TopArtists"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.login_load"
             android:exported="false" />
         <activity
             android:name=".Activities.Homepage"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="spotifywrapped"
+                    android:host="auth"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.Generate"
             android:exported="false" />
         <activity
+            android:name=".Activities.Gallery"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
             android:exported="true" />
-        <activity android:name=".Activities.GameOne"
-            android:exported="false"/>
-        <activity android:name=".Activities.GameTwo"
-            android:exported="false"/>
-        <activity android:name=".Activities.Summary"
-            android:exported="false"/>
+        <activity
+            android:name=".Activities.GameOne"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.GameTwo"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Summary"
+            android:exported="false" />
         <activity
             android:name=".Activities.splash_main"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

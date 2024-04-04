@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#00FFFFFF"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8CECE4">
+
+        <TextView
+            android:id="@+id/gameOneheader"
+            android:layout_width="0dp"
+            android:layout_height="62dp"
+            android:alpha="0.25"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/exitButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#00FFFFFF"
+            android:translationX="5dp"
+            android:translationY="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        <ImageView
+            android:id="@+id/segment1"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white" />
+        <ImageView
+            android:id="@+id/segment2"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white"
+            />
+        <ImageView
+            android:id="@+id/segment3"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white"
+            />
+        <ImageView
+            android:id="@+id/segment4"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment3"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            android:backgroundTint="@color/white"
+            />
+        <ImageView
+            android:id="@+id/segment5"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment4"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            />
+        <ImageView
+            android:id="@+id/segment6"
+            android:layout_width="30dp"
+            android:layout_height="11dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            android:alpha="0.5"
+            android:scaleX="1.5"
+            app:layout_constraintStart_toEndOf="@id/segment5"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_progress_bg"
+            />
+
+        <TextView
+            android:id="@+id/GameOneHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_one"
+            android:textColor="#E431A2"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameOneheader"
+            app:layout_constraintVertical_bias="0.033" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gameOneheader" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -35,8 +35,10 @@ import okhttp3.Response;
 public class Generate extends AppCompatActivity {
     private Call mCall;
     private String mAccessToken;
+    private int accountId;
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
+
     public static final String CLIENT_ID = "306fb5543abb4f23b00ae1a5d1d70886";
     public static final String REDIRECT_URI = "spotifywrapped://auth";
 
@@ -54,15 +56,18 @@ public class Generate extends AppCompatActivity {
         //Initialize the spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner_generate);
 
-        Bundle bundle = getIntent().getExtras();
-        mAccessToken = bundle.getString("accountToken");
+        Bundle gbundle = getIntent().getExtras();
+        mAccessToken = gbundle.getString("accountToken");
+        accountId = gbundle.getInt("accountID");
+        System.out.println("Generate Token:" + mAccessToken);
         //Set click listeners for "x" button
-        imgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Generate.this, Homepage.class);
-                startActivity(intent);
-            }
+        imgButton.setOnClickListener((v) -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", mAccessToken);
+            bundle.putInt("accountID", accountId);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle);
+            startActivity(i);
         });
         //Set click listener for spinner (drop down menu)
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,11 +78,14 @@ public class Generate extends AppCompatActivity {
                     case "Past Month":
                         time_range = "short_term";
                         break;
-                    case "All Time":
-                        time_range = "long_term";
+                    case "Past Six Months":
+                        time_range = "medium_term";
+                        break;
+                    case "Past Year":
+                        time_range = "long_term"; //just for testing purpose
                         break;
                     default:
-                        time_range = "medium_term"; //just for testing purpose
+                        time_range = "medium_term";
                         break;
                 }
             }
@@ -100,72 +108,9 @@ public class Generate extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("accountToken", mAccessToken);
         bundle.putString("timeFrame", time_range);
-        Intent i = new Intent(getApplicationContext(), TopSongs.class);
+        bundle.putInt("accountID", accountId);
+        Intent i = new Intent(Generate.this, TopSongs.class);
         i.putExtras(bundle);
         startActivity(i);
-        /*
-        final AuthorizationRequest request3 = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
-        AuthorizationClient.openLoginActivity(Generate.this, AUTH_TOKEN_REQUEST_CODE, request3);
-
-        final Request request = new Request.Builder()
-                .url("https://api.spotify.com/v1/me/top/artists")
-                .addHeader("Authorization", "Bearer " + mAccessToken)
-                .build();
-        if (mCall != null) {
-            mCall.cancel();
-        }
-        mCall = mOkHttpClient.newCall(request);
-        mCall.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.d("HTTP", "Failed to fetch data: " + e);
-                Toast.makeText(Generate.this, "Failed to fetch data, watch Logcat for more details",
-                        Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-                try {
-                    final JSONObject jsonObject = new JSONObject(response.body().string());
-                    JSONArray jsonArray = jsonObject.optJSONArray("items");
-                    runOnUiThread(() -> ((TextView) findViewById(R.id.generateText)).setText(jsonArray.optJSONObject(0).optString("name")));
-                } catch (JSONException e) {
-                    Log.d("JSON", "Failed to parse data: " + e);
-                    Toast.makeText(Generate.this, "Failed to parse data, watch Logcat for more details",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
-
-        // Check which request code is present (if any)
-        if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-            mAccessToken = response.getAccessToken();
-            Log.d("Access Token", mAccessToken);
-
-        }
-    }
-
-    private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
-        return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
-                .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email"}) // <--- Change the scope of your requested token here
-                .setCampaign("your-campaign-token")
-                .build();
-    }
-    private Uri getRedirectUri() {
-        return Uri.parse(REDIRECT_URI);
-    }
-    private void setTextAsync(final String text, TextView textView) {
-        runOnUiThread(() -> textView.setText(text));
-    }
-         */
     }
 }

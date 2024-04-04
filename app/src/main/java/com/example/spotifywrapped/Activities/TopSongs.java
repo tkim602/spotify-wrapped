@@ -1,8 +1,14 @@
 package com.example.spotifywrapped.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.media.MediaPlayer;
 
 import androidx.annotation.NonNull;
 import com.example.spotifywrapped.Interfaces.Personalization;
@@ -12,6 +18,9 @@ import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
 import com.bumptech.glide.Glide;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,24 +28,31 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import android.util.Log;
 import android.widget.Toast;
+import java.io.IOException;
 
 
 public class TopSongs extends AppCompatActivity {
     private Personalization personalizationService;
     private String AccessToken;
     private String time_range;
+    private ImageButton exitButton;
+    private ImageButton nextButton;
+
     private ImageView[] songImageViews = new ImageView[6];
     private TextView[] songTextViews = new TextView[6];
-
+    private int accountId;
     private Retrofit retrofit;
+    private MediaPlayer mediaPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.top_songs2);
-        Bundle bundle = getIntent().getExtras();
-        AccessToken = bundle.getString("accountToken");
-        time_range = bundle.getString("timeFrame");
+        Bundle gbundle = getIntent().getExtras();
+        AccessToken = gbundle.getString("accountToken");
+        accountId = gbundle.getInt("accountID");
+        time_range = gbundle.getString("timeFrame");
         // View bindings and initialize them
         songImageViews[0] = findViewById(R.id.song1);
         songImageViews[1] = findViewById(R.id.song2);
@@ -51,7 +67,43 @@ public class TopSongs extends AppCompatActivity {
         songTextViews[3] = findViewById(R.id.song4_name);
         songTextViews[4] = findViewById(R.id.song5_name);
         songTextViews[5] = findViewById(R.id.song6_name);
+        exitButton = findViewById(R.id.exitButton);
+        nextButton = findViewById(R.id.nextButton);
 
+
+        exitButton.setOnClickListener((v) -> {
+            if (mediaPlayer != null) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", AccessToken);
+            bundle.putInt("accountID", accountId);
+            Intent i = new Intent(getApplicationContext(), Generate.class);
+            i.putExtras(bundle);
+            startActivity(i);
+
+        });
+
+        nextButton.setOnClickListener((v) -> {
+            if (mediaPlayer != null) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString("accountToken", AccessToken);
+            bundle.putString("timeFrame", time_range);
+            bundle.putInt("accountID", accountId);
+            Intent i = new Intent(getApplicationContext(), TopArtists.class);
+            i.putExtras(bundle);
+            startActivity(i);
+        });
         setupRetrofit();
         loadTopTracks();
     }
@@ -65,10 +117,9 @@ public class TopSongs extends AppCompatActivity {
     }
 
     private void loadTopTracks() {
-        // dont know how to access to mAccessToken
-        String authToken = "Bearer " + "token";
+        String authToken = "Bearer " + AccessToken;
 
-        Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken);
+        Call<SpotifyTrackResponse> call = personalizationService.getTopTracks(authToken, time_range);
         call.enqueue(new Callback<SpotifyTrackResponse>() {
             @Override
             public void onResponse(@NonNull Call<SpotifyTrackResponse> call, @NonNull Response<SpotifyTrackResponse> response) {
@@ -95,6 +146,35 @@ public class TopSongs extends AppCompatActivity {
             Track track = tracks.get(i);
             songTextViews[i].setText(track.getName());
             Glide.with(this).load(track.getAlbum().getImages().get(0).getUrl()).into(songImageViews[i]);
+            if (i == 0) {
+                playTopTrack(track.getPreviewUrl());
+            }
+        }
+    }
+    private void playTopTrack(String url) {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(url);
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(MediaPlayer::start);
+        } catch (IOException e) {
+            Log.e("TopSongs", "Error setting data source for MediaPlayer", e);
+            Toast.makeText(this, "Unable to play the top track.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
     }
 }
+

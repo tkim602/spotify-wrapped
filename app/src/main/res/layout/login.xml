@@ -72,7 +72,8 @@
                 android:backgroundTint="@color/black"
                 android:text="Log In"
                 android:textSize="18sp"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:rippleColor="@color/white"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

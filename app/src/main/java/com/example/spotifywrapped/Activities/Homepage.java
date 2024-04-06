@@ -74,6 +74,7 @@ public class Homepage extends AppCompatActivity {
         Button settingsBtn = (Button) findViewById(R.id.settings_button);
         Button llmBtn = (Button) findViewById(R.id.llm_button);
         Button galleryBtn = (Button) findViewById(R.id.gallery_button);
+        Button hideBtn = (Button) findViewById(R.id.hideButton);
 
         displayDataBtn.setOnClickListener((v -> {
             String result = "";

@@ -1,6 +1,7 @@
 package com.example.spotifywrapped.Activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.media.MediaPlayer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,7 @@ import com.example.spotifywrapped.Models.SpotifyTrackResponse;
 import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +50,7 @@ public class Summary extends AppCompatActivity {
     private int accountId;
 
     private Retrofit retrofit;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,5 +196,28 @@ public class Summary extends AppCompatActivity {
 
     private void updateListeningMinutesUI(int minutes) {
         minutesTextView.setText(String.format("%d minutes", minutes));
+    }
+    private void playTopTrack(String url) {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(url);
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(MediaPlayer::start);
+        } catch (IOException e) {
+            Log.e("Summary", "Error setting data source for MediaPlayer.");
+        }
+    }
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

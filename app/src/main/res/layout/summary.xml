@@ -75,7 +75,7 @@
             app:layout_constraintHorizontal_bias="0.136"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/minutesListened"
-            app:layout_constraintVertical_bias="0.072" />
+            app:layout_constraintVertical_bias="0.104" />
 
         <TextView
             android:id="@+id/genretobeupdated"
@@ -142,13 +142,14 @@
             android:layout_marginBottom="144dp"
             android:text="Top\nGenre"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toEndOf="@+id/minutesListened"
+            app:layout_constraintHorizontal_bias="0.669"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/artistImage"
-            app:layout_constraintVertical_bias="0.984" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/segment4"
@@ -213,8 +214,10 @@
             android:background="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/summaryHeader"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/topartist1"

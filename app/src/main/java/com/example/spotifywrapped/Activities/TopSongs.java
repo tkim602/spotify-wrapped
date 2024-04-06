@@ -2,11 +2,8 @@ package com.example.spotifywrapped.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.media.MediaPlayer;
 
@@ -22,8 +19,6 @@ import com.example.spotifywrapped.R;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,19 +55,19 @@ public class TopSongs extends AppCompatActivity {
         accountId = gbundle.getInt("accountID");
         time_range = gbundle.getString("timeFrame");
         // View bindings and initialize them
-        songImageViews[0] = findViewById(R.id.song1);
-        songImageViews[1] = findViewById(R.id.song2);
-        songImageViews[2] = findViewById(R.id.song3);
-        songImageViews[3] = findViewById(R.id.song4);
-        songImageViews[4] = findViewById(R.id.song5);
-        songImageViews[5] = findViewById(R.id.song6);
+        songImageViews[0] = findViewById(R.id.summary1);
+        songImageViews[1] = findViewById(R.id.summary2);
+        songImageViews[2] = findViewById(R.id.summary3);
+        songImageViews[3] = findViewById(R.id.summary4);
+        songImageViews[4] = findViewById(R.id.summary5);
+        songImageViews[5] = findViewById(R.id.summary6);
 
-        songTextViews[0] = findViewById(R.id.song1_name);
-        songTextViews[1] = findViewById(R.id.song2_name);
-        songTextViews[2] = findViewById(R.id.song3_name);
-        songTextViews[3] = findViewById(R.id.song4_name);
-        songTextViews[4] = findViewById(R.id.song5_name);
-        songTextViews[5] = findViewById(R.id.song6_name);
+        songTextViews[0] = findViewById(R.id.summary1_name);
+        songTextViews[1] = findViewById(R.id.summary2_name);
+        songTextViews[2] = findViewById(R.id.summary3_name);
+        songTextViews[3] = findViewById(R.id.summary4_name);
+        songTextViews[4] = findViewById(R.id.summary5_name);
+        songTextViews[5] = findViewById(R.id.summary6_name);
         exitButton = findViewById(R.id.exitButton);
         nextButton = findViewById(R.id.nextButton);
 

@@ -64,7 +64,8 @@
                 android:text="Go"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:rippleColor="#00F8FF" />
 
 
         </LinearLayout>
@@ -113,14 +114,14 @@
         android:id="@+id/segment4"
         android:layout_width="53dp"
         android:layout_height="11dp"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
         android:alpha="0.5"
+        android:background="@drawable/custom_progress_bg"
         android:scaleX="1.5"
         app:layout_constraintStart_toEndOf="@id/segment1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="191dp" />
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/segment5"
         android:layout_width="53dp"

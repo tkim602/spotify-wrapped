@@ -123,9 +123,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/song1_box"
-            app:layout_constraintEnd_toEndOf="@+id/song1"
-            app:layout_constraintStart_toStartOf="@+id/song1" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary1_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary1"
+            app:layout_constraintStart_toStartOf="@+id/summary1" />
 
         <TextView
             android:id="@+id/textView18"
@@ -135,9 +135,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="-13dp"
-            app:layout_constraintEnd_toEndOf="@+id/song1"
-            app:layout_constraintStart_toStartOf="@+id/song1"
-            app:layout_constraintTop_toTopOf="@+id/song1" />
+            app:layout_constraintEnd_toEndOf="@+id/summary1"
+            app:layout_constraintStart_toStartOf="@+id/summary1"
+            app:layout_constraintTop_toTopOf="@+id/summary1" />
 
         <TextView
             android:id="@+id/textView20"
@@ -147,9 +147,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/song2_box"
-            app:layout_constraintEnd_toEndOf="@+id/song2"
-            app:layout_constraintStart_toStartOf="@+id/song2" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary2_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary2"
+            app:layout_constraintStart_toStartOf="@+id/summary2" />
 
         <TextView
             android:id="@+id/textView21"
@@ -159,9 +159,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="-13dp"
-            app:layout_constraintEnd_toEndOf="@+id/song2"
-            app:layout_constraintStart_toStartOf="@+id/song2"
-            app:layout_constraintTop_toTopOf="@+id/song2" />
+            app:layout_constraintEnd_toEndOf="@+id/summary2"
+            app:layout_constraintStart_toStartOf="@+id/summary2"
+            app:layout_constraintTop_toTopOf="@+id/summary2" />
 
         <TextView
             android:id="@+id/textView22"
@@ -171,9 +171,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/song3_box"
-            app:layout_constraintEnd_toEndOf="@+id/song3"
-            app:layout_constraintStart_toStartOf="@+id/song3" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary3_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary3"
+            app:layout_constraintStart_toStartOf="@+id/summary3" />
 
         <TextView
             android:id="@+id/textView23"
@@ -183,9 +183,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="-13dp"
-            app:layout_constraintEnd_toEndOf="@+id/song3"
-            app:layout_constraintStart_toStartOf="@+id/song3"
-            app:layout_constraintTop_toTopOf="@+id/song3" />
+            app:layout_constraintEnd_toEndOf="@+id/summary3"
+            app:layout_constraintStart_toStartOf="@+id/summary3"
+            app:layout_constraintTop_toTopOf="@+id/summary3" />
 
         <TextView
             android:id="@+id/textView3"
@@ -195,9 +195,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/song4_box"
-            app:layout_constraintEnd_toEndOf="@+id/song4"
-            app:layout_constraintStart_toStartOf="@+id/song4" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary4_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary4"
+            app:layout_constraintStart_toStartOf="@+id/summary4" />
 
         <TextView
             android:id="@+id/textView16"
@@ -207,9 +207,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="-13dp"
-            app:layout_constraintEnd_toEndOf="@+id/song4"
-            app:layout_constraintStart_toStartOf="@+id/song4"
-            app:layout_constraintTop_toTopOf="@+id/song4" />
+            app:layout_constraintEnd_toEndOf="@+id/summary4"
+            app:layout_constraintStart_toStartOf="@+id/summary4"
+            app:layout_constraintTop_toTopOf="@+id/summary4" />
 
         <TextView
             android:id="@+id/textView17"
@@ -219,9 +219,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/song5_box"
-            app:layout_constraintEnd_toEndOf="@+id/song5"
-            app:layout_constraintStart_toStartOf="@+id/song5" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary5_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary5"
+            app:layout_constraintStart_toStartOf="@+id/summary5" />
 
         <TextView
             android:id="@+id/textView24"
@@ -231,9 +231,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="-13dp"
-            app:layout_constraintEnd_toEndOf="@+id/song5"
-            app:layout_constraintStart_toStartOf="@+id/song5"
-            app:layout_constraintTop_toTopOf="@+id/song5" />
+            app:layout_constraintEnd_toEndOf="@+id/summary5"
+            app:layout_constraintStart_toStartOf="@+id/summary5"
+            app:layout_constraintTop_toTopOf="@+id/summary5" />
 
         <TextView
             android:id="@+id/textView25"
@@ -243,9 +243,9 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/song6_box"
-            app:layout_constraintEnd_toEndOf="@+id/song6"
-            app:layout_constraintStart_toStartOf="@+id/song6" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary6_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary6"
+            app:layout_constraintStart_toStartOf="@+id/summary6" />
 
         <TextView
             android:id="@+id/textView26"
@@ -255,147 +255,147 @@
             android:rotation="90"
             android:translationX="0dp"
             android:translationY="-13dp"
-            app:layout_constraintEnd_toEndOf="@+id/song6"
-            app:layout_constraintStart_toStartOf="@+id/song6"
-            app:layout_constraintTop_toTopOf="@+id/song6" />
+            app:layout_constraintEnd_toEndOf="@+id/summary6"
+            app:layout_constraintStart_toStartOf="@+id/summary6"
+            app:layout_constraintTop_toTopOf="@+id/summary6" />
 
         <TextView
-            android:id="@+id/song1_box"
+            android:id="@+id/summary1_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
             android:backgroundTint="#E431A2"
             android:translationX="0dp"
-            app:layout_constraintStart_toStartOf="@+id/song1"
-            app:layout_constraintTop_toTopOf="@+id/song1" />
+            app:layout_constraintStart_toStartOf="@+id/summary1"
+            app:layout_constraintTop_toTopOf="@+id/summary1" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/song1"
+            android:id="@+id/summary1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/song3"
-            app:layout_constraintEnd_toStartOf="@+id/song2"
+            app:layout_constraintBottom_toTopOf="@+id/summary3"
+            app:layout_constraintEnd_toStartOf="@+id/summary2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topSongsTitle"
             app:shapeAppearanceOverlay="@style/cir_rad"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/song2_box"
+            android:id="@+id/summary2_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
             android:backgroundTint="#E431A2"
             android:translationX="0dp"
-            app:layout_constraintStart_toStartOf="@+id/song2"
-            app:layout_constraintTop_toTopOf="@+id/song2" />
+            app:layout_constraintStart_toStartOf="@+id/summary2"
+            app:layout_constraintTop_toTopOf="@+id/summary2" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/song2"
+            android:id="@+id/summary2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/song4"
+            app:layout_constraintBottom_toTopOf="@+id/summary4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/song1"
+            app:layout_constraintStart_toEndOf="@+id/summary1"
             app:layout_constraintTop_toBottomOf="@+id/topSongsTitle"
             app:shapeAppearanceOverlay="@style/cir_rad"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/song3_box"
+            android:id="@+id/summary3_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
             android:backgroundTint="#E431A2"
             android:translationX="0dp"
-            app:layout_constraintStart_toStartOf="@+id/song3"
-            app:layout_constraintTop_toTopOf="@+id/song3" />
+            app:layout_constraintStart_toStartOf="@+id/summary3"
+            app:layout_constraintTop_toTopOf="@+id/summary3" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/song3"
+            android:id="@+id/summary3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/song5"
-            app:layout_constraintEnd_toStartOf="@+id/song4"
+            app:layout_constraintBottom_toTopOf="@+id/summary5"
+            app:layout_constraintEnd_toStartOf="@+id/summary4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/song1"
+            app:layout_constraintTop_toBottomOf="@+id/summary1"
             app:shapeAppearanceOverlay="@style/cir_rad"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/song4_box"
+            android:id="@+id/summary4_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
             android:backgroundTint="#E431A2"
             android:translationX="0dp"
-            app:layout_constraintStart_toStartOf="@+id/song4"
-            app:layout_constraintTop_toTopOf="@+id/song4" />
+            app:layout_constraintStart_toStartOf="@+id/summary4"
+            app:layout_constraintTop_toTopOf="@+id/summary4" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/song4"
+            android:id="@+id/summary4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/song6"
+            app:layout_constraintBottom_toTopOf="@+id/summary6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/song3"
-            app:layout_constraintTop_toBottomOf="@+id/song2"
+            app:layout_constraintStart_toEndOf="@+id/summary3"
+            app:layout_constraintTop_toBottomOf="@+id/summary2"
             app:shapeAppearanceOverlay="@style/cir_rad"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/song5_box"
+            android:id="@+id/summary5_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
             android:backgroundTint="#E431A2"
             android:translationX="0dp"
-            app:layout_constraintStart_toStartOf="@+id/song5"
-            app:layout_constraintTop_toTopOf="@+id/song5" />
+            app:layout_constraintStart_toStartOf="@+id/summary5"
+            app:layout_constraintTop_toTopOf="@+id/summary5" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/song5"
+            android:id="@+id/summary5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/song6"
+            app:layout_constraintEnd_toStartOf="@+id/summary6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/song3"
+            app:layout_constraintTop_toBottomOf="@+id/summary3"
             app:layout_constraintVertical_bias="0.502"
             app:shapeAppearanceOverlay="@style/cir_rad"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/song6_box"
+            android:id="@+id/summary6_box"
             android:layout_width="108dp"
             android:layout_height="85dp"
             android:layout_marginTop="85dp"
             android:background="@drawable/borders"
             android:backgroundTint="#E431A2"
             android:translationX="0dp"
-            app:layout_constraintStart_toStartOf="@+id/song6"
-            app:layout_constraintTop_toTopOf="@+id/song6" />
+            app:layout_constraintStart_toStartOf="@+id/summary6"
+            app:layout_constraintTop_toTopOf="@+id/summary6" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/song6"
+            android:id="@+id/summary6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -403,8 +403,8 @@
             android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/song5"
-            app:layout_constraintTop_toBottomOf="@+id/song4"
+            app:layout_constraintStart_toEndOf="@+id/summary5"
+            app:layout_constraintTop_toBottomOf="@+id/summary4"
             app:shapeAppearanceOverlay="@style/cir_rad"
             app:srcCompat="@drawable/ic_launcher_background" />
 
@@ -418,8 +418,8 @@
             android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/song1"
-            app:layout_constraintTop_toTopOf="@+id/song1" />
+            app:layout_constraintEnd_toStartOf="@+id/summary1"
+            app:layout_constraintTop_toTopOf="@+id/summary1" />
 
         <TextView
             android:id="@+id/textView7"
@@ -431,8 +431,8 @@
             android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/song2"
-            app:layout_constraintTop_toTopOf="@+id/song2" />
+            app:layout_constraintEnd_toStartOf="@+id/summary2"
+            app:layout_constraintTop_toTopOf="@+id/summary2" />
 
         <TextView
             android:id="@+id/textView8"
@@ -444,8 +444,8 @@
             android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/song3"
-            app:layout_constraintTop_toTopOf="@+id/song3" />
+            app:layout_constraintEnd_toStartOf="@+id/summary3"
+            app:layout_constraintTop_toTopOf="@+id/summary3" />
 
         <TextView
             android:id="@+id/textView9"
@@ -457,8 +457,8 @@
             android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/song4"
-            app:layout_constraintTop_toTopOf="@+id/song4" />
+            app:layout_constraintEnd_toStartOf="@+id/summary4"
+            app:layout_constraintTop_toTopOf="@+id/summary4" />
 
         <TextView
             android:id="@+id/textView10"
@@ -470,8 +470,8 @@
             android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/song5"
-            app:layout_constraintTop_toTopOf="@+id/song5" />
+            app:layout_constraintEnd_toStartOf="@+id/summary5"
+            app:layout_constraintTop_toTopOf="@+id/summary5" />
 
         <TextView
             android:id="@+id/textView11"
@@ -483,11 +483,11 @@
             android:textColor="#E431A2"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/song6"
-            app:layout_constraintTop_toTopOf="@+id/song6" />
+            app:layout_constraintEnd_toStartOf="@+id/summary6"
+            app:layout_constraintTop_toTopOf="@+id/summary6" />
 
         <TextView
-            android:id="@+id/song1_name"
+            android:id="@+id/summary1_name"
             android:layout_width="84dp"
             android:layout_height="41dp"
             android:text="Song Name"
@@ -495,13 +495,13 @@
             android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/song1_box"
-            app:layout_constraintEnd_toEndOf="@+id/song1_box"
-            app:layout_constraintStart_toStartOf="@+id/song1_box"
-            app:layout_constraintTop_toBottomOf="@+id/song1" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary1_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary1_box"
+            app:layout_constraintStart_toStartOf="@+id/summary1_box"
+            app:layout_constraintTop_toBottomOf="@+id/summary1" />
 
         <TextView
-            android:id="@+id/song2_name"
+            android:id="@+id/summary2_name"
             android:layout_width="84dp"
             android:layout_height="41dp"
             android:text="Song Name"
@@ -509,13 +509,13 @@
             android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/song2_box"
-            app:layout_constraintEnd_toEndOf="@+id/song2_box"
-            app:layout_constraintStart_toStartOf="@+id/song2_box"
-            app:layout_constraintTop_toBottomOf="@+id/song2" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary2_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary2_box"
+            app:layout_constraintStart_toStartOf="@+id/summary2_box"
+            app:layout_constraintTop_toBottomOf="@+id/summary2" />
 
         <TextView
-            android:id="@+id/song3_name"
+            android:id="@+id/summary3_name"
             android:layout_width="84dp"
             android:layout_height="41dp"
             android:text="Song Name"
@@ -523,13 +523,13 @@
             android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/song3_box"
-            app:layout_constraintEnd_toEndOf="@+id/song3_box"
-            app:layout_constraintStart_toStartOf="@+id/song3_box"
-            app:layout_constraintTop_toBottomOf="@+id/song3" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary3_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary3_box"
+            app:layout_constraintStart_toStartOf="@+id/summary3_box"
+            app:layout_constraintTop_toBottomOf="@+id/summary3" />
 
         <TextView
-            android:id="@+id/song4_name"
+            android:id="@+id/summary4_name"
             android:layout_width="84dp"
             android:layout_height="41dp"
             android:text="Song Name"
@@ -537,13 +537,13 @@
             android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/song4_box"
-            app:layout_constraintEnd_toEndOf="@+id/song4_box"
-            app:layout_constraintStart_toStartOf="@+id/song4_box"
-            app:layout_constraintTop_toBottomOf="@+id/song4" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary4_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary4_box"
+            app:layout_constraintStart_toStartOf="@+id/summary4_box"
+            app:layout_constraintTop_toBottomOf="@+id/summary4" />
 
         <TextView
-            android:id="@+id/song5_name"
+            android:id="@+id/summary5_name"
             android:layout_width="84dp"
             android:layout_height="41dp"
             android:text="Song Name"
@@ -551,13 +551,13 @@
             android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/song5_box"
-            app:layout_constraintEnd_toEndOf="@+id/song5_box"
-            app:layout_constraintStart_toStartOf="@+id/song5_box"
-            app:layout_constraintTop_toBottomOf="@+id/song5" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary5_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary5_box"
+            app:layout_constraintStart_toStartOf="@+id/summary5_box"
+            app:layout_constraintTop_toBottomOf="@+id/summary5" />
 
         <TextView
-            android:id="@+id/song6_name"
+            android:id="@+id/summary6_name"
             android:layout_width="84dp"
             android:layout_height="41dp"
             android:text="Song Name"
@@ -565,10 +565,10 @@
             android:textColor="#8CECE4"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/song6_box"
-            app:layout_constraintEnd_toEndOf="@+id/song6_box"
-            app:layout_constraintStart_toStartOf="@+id/song6_box"
-            app:layout_constraintTop_toBottomOf="@+id/song6" />
+            app:layout_constraintBottom_toBottomOf="@+id/summary6_box"
+            app:layout_constraintEnd_toEndOf="@+id/summary6_box"
+            app:layout_constraintStart_toStartOf="@+id/summary6_box"
+            app:layout_constraintTop_toBottomOf="@+id/summary6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

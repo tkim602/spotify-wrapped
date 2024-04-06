@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#91EF9E">
+        android:background="@drawable/greenpattern">
 
         <TextView
             android:id="@+id/topSongsHeader"

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
@@ -74,8 +75,20 @@ public class Homepage extends AppCompatActivity {
         Button settingsBtn = (Button) findViewById(R.id.settings_button);
         Button llmBtn = (Button) findViewById(R.id.llm_button);
         Button galleryBtn = (Button) findViewById(R.id.gallery_button);
-        Button hideBtn = (Button) findViewById(R.id.hideButton);
+        ToggleButton hideBtn = (ToggleButton) findViewById(R.id.hideButton);
 
+        hideBtn.setOnClickListener((v -> {
+            if (hideBtn.isChecked()) {
+                //Show the Display Data
+
+                displayDataBtn.setVisibility(View.VISIBLE);
+                dataView.setVisibility(View.VISIBLE);
+            } else {
+                //Hide the display data
+                displayDataBtn.setVisibility(View.GONE);
+                dataView.setVisibility(View.GONE);
+            }
+        }));
         displayDataBtn.setOnClickListener((v -> {
             String result = "";
             for (Account a : accountArrayList) {

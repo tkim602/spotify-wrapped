@@ -64,7 +64,8 @@
                 android:text="Go"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:rippleColor="#00F8FF" />
 
 
         </LinearLayout>

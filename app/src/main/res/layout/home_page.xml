@@ -14,6 +14,7 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:textStyle="bold"
+        android:visibility="gone"
         tools:visibility="gone" />
 
     <Button
@@ -21,7 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Display Accounts Data"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:visibility="gone"
         tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,6 +34,7 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
@@ -40,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26999998">
+            app:layout_constraintVertical_bias="0.39">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,7 +64,7 @@
                     android:paddingStart="16dp"
                     android:paddingTop="8dp"
                     android:paddingEnd="16dp"
-                    android:text="Welcome,"
+                    android:text="Welcome"
                     android:textColor="#000000"
                     android:textSize="33sp"
                     android:textStyle="bold"
@@ -83,35 +89,44 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="#000000"
+                    android:drawableTint="#000000"
                     android:text="Generate"
+                    app:iconTint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/name_homepage" />
+                    app:layout_constraintTop_toTopOf="@id/name_homepage"
+                    app:rippleColor="@color/white" />
 
                 <Button
                     android:id="@+id/gallery_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:backgroundTint="#000000"
                     android:text="Gallery"
                     app:layout_constraintBottom_toTopOf="@+id/setting_button"
-                    app:layout_constraintTop_toBottomOf="@+id/generate_button" />
+                    app:layout_constraintTop_toBottomOf="@+id/generate_button"
+                    app:rippleColor="@color/white"/>
 
                 <Button
                     android:id="@+id/settings_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:backgroundTint="#000000"
                     android:text="Settings"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/generate_button" />
+                    app:layout_constraintTop_toBottomOf="@+id/generate_button"
+                    app:rippleColor="@color/white"/>
 
                 <Button
                     android:id="@+id/llm_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:backgroundTint="#000000"
                     android:text="LLM"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:rippleColor="@color/white"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -129,5 +144,19 @@
             android:translationY="-6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="104dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="154dp"
+            android:layout_marginBottom="41dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/spotify_icon_rgb_white" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -119,6 +119,7 @@ public class Homepage extends AppCompatActivity {
                     System.out.println(a.getAccountEmail());
                     if (a.getAccountID() == accountID) {
                         currAccount = a;
+                        System.out.println("This is the curr account:" + currAccount);
                         break;
                     }
                 }

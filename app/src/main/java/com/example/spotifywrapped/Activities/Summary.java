@@ -1,29 +1,39 @@
 package com.example.spotifywrapped.Activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.media.MediaPlayer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.Models.Artist;
 import com.bumptech.glide.Glide;
 import com.example.spotifywrapped.Interfaces.Personalization;
 import com.example.spotifywrapped.Models.SpotifyArtistResponse;
-import com.example.spotifywrapped.Models.Artist;
 import com.example.spotifywrapped.Models.SpotifyTrackResponse;
 import com.example.spotifywrapped.Models.Track;
 import com.example.spotifywrapped.R;
+import com.example.spotifywrapped.SpotifyWrappedDatabase;
+import com.example.spotifywrapped.SpotifyWrappedViewModel;
+import com.example.spotifywrapped.Utilities.GalleryUtility;
 
+import org.checkerframework.checker.units.qual.C;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,10 +57,16 @@ public class Summary extends AppCompatActivity {
     private ImageButton exitButton;
 
     private ImageButton nextButton;
-    private int accountId;
+    private int accountID;
 
     private Retrofit retrofit;
     private MediaPlayer mediaPlayer;
+
+    private Account currAccount;
+
+    private SpotifyWrappedViewModel spotifyWrappedViewModel;
+
+    private ArrayList<Account> accountArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +75,7 @@ public class Summary extends AppCompatActivity {
         Bundle gbundle = getIntent().getExtras();
         AccessToken = gbundle.getString("accountToken");
         time_range = gbundle.getString("timeFrame");
-        accountId = gbundle.getInt("accountID");
+        accountID = gbundle.getInt("accountID");
         exitButton = findViewById(R.id.exitButton);
         nextButton = findViewById(R.id.nextButton);
 
@@ -81,33 +97,68 @@ public class Summary extends AppCompatActivity {
         minutesTextView = findViewById(R.id.minutesToBeUpdated);
         artistImageView = findViewById(R.id.artistImage);
 
+        SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
+        spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
+
+        spotifyWrappedViewModel.getAllAccounts().observe(this, new Observer<List<Account>>() {
+            @Override
+            public void onChanged(List<Account> accounts) {
+                accountArrayList.clear();
+                for (Account a : accounts) {
+                    accountArrayList.add(a);
+                }
+
+                Bundle bundle = getIntent().getExtras();
+                accountID = bundle.getInt("accountID");
+
+                for (Account a : accountArrayList) {
+                    System.out.println(a.getAccountEmail());
+                    if (a.getAccountID() == accountID) {
+                        currAccount = a;
+                        break;
+                    }
+                }
+            }
+        });
+
         exitButton.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
-            bundle.putString("accountToken", AccessToken);
-            bundle.putInt("accountID", accountId);
+            bundle.putInt("accountID", accountID);
             Intent i = new Intent(getApplicationContext(), Homepage.class);
             i.putExtras(bundle);
+
+            ArrayList<String> currentImages = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
+            currentImages.add(captureScreenshot());
+            currAccount.setAccountImages(GalleryUtility.encodeBase64ImagesToString(currentImages));
+            spotifyWrappedViewModel.updateAccount(currAccount);
+
             startActivity(i);
+            finish();
         });
 
         nextButton.setOnClickListener((v) -> {
             Bundle bundle = new Bundle();
-            bundle.putString("accountToken", AccessToken);
-            bundle.putString("timeFrame", time_range);
-            bundle.putString("location", "summary");
-            bundle.putInt("accountID", accountId);
-            Intent i = new Intent(getApplicationContext(), Gallery.class);
+            bundle.putInt("accountID", accountID);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
             i.putExtras(bundle);
+            ArrayList<String> currentImages = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
+            currentImages.add(captureScreenshot());
+            currAccount.setAccountImages(GalleryUtility.encodeBase64ImagesToString(currentImages));
+            spotifyWrappedViewModel.updateAccount(currAccount);
+
             startActivity(i);
+            finish();
         });
 
         setupRetrofit();
         loadTopTractsAndArtists();
     }
+
     private void loadTopTractsAndArtists() {
         loadTopTracks();
         loadTopArtist();
     }
+
     private void setupRetrofit() {
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.spotify.com/")
@@ -115,6 +166,7 @@ public class Summary extends AppCompatActivity {
                 .build();
         personalizationService = retrofit.create(Personalization.class);
     }
+
     private void loadTopTracks() {
         String authToken = "Bearer " + AccessToken;
 
@@ -131,12 +183,14 @@ public class Summary extends AppCompatActivity {
                     Log.e("Summary", "Failed to load top tracks");
                 }
             }
+
             @Override
             public void onFailure(@NonNull Call<SpotifyTrackResponse> call, @NonNull Throwable t) {
                 Log.e("Summary", "Error loading top tracks", t);
             }
         });
     }
+
     private void updateTopTracksUI(List<Track> tracks) {
         int limit = Math.min(tracks.size(), 6);
         for (int i = 0; i < limit; i++) {
@@ -144,6 +198,7 @@ public class Summary extends AppCompatActivity {
             topsongTextViews[i].setText(track.getName());
         }
     }
+
     private void loadTopArtist() {
         String authToken = "Bearer " + AccessToken;
 
@@ -167,6 +222,7 @@ public class Summary extends AppCompatActivity {
             }
         });
     }
+
     private void updateTopArtistsUI(List<Artist> artists) {
         int limit = Math.min(artists.size(), 6);
         for (int i = 0; i < limit; i++) {
@@ -177,10 +233,12 @@ public class Summary extends AppCompatActivity {
             }
         }
     }
+
     private int calculateListeningMinutes(List<Track> tracks) {
         int totalDurationMs = tracks.stream().mapToInt(Track::getDurationMs).sum();
         return totalDurationMs / (1000 * 60);
     }
+
     private String calculateTopGenre(List<Artist> artists) {
         Map<String, Integer> genreCount = new HashMap<>();
         artists.forEach(artist -> artist.getGenres().forEach(genre -> genreCount.put(genre, genreCount.getOrDefault(genre, 0) + 1)));
@@ -190,6 +248,7 @@ public class Summary extends AppCompatActivity {
                 .map(Map.Entry::getKey)
                 .orElse("Unknown Genre");
     }
+
     private void updateGenreUI(String genre) {
         genreTextView.setText(genre);
     }
@@ -197,6 +256,7 @@ public class Summary extends AppCompatActivity {
     private void updateListeningMinutesUI(int minutes) {
         minutesTextView.setText(String.format("%d minutes", minutes));
     }
+
     private void playTopTrack(String url) {
         if (mediaPlayer != null) {
             mediaPlayer.release();
@@ -210,6 +270,7 @@ public class Summary extends AppCompatActivity {
             Log.e("Summary", "Error setting data source for MediaPlayer.");
         }
     }
+
     protected void onDestroy() {
         super.onDestroy();
         if (mediaPlayer != null) {
@@ -220,4 +281,19 @@ public class Summary extends AppCompatActivity {
             mediaPlayer = null;
         }
     }
+
+    public String captureScreenshot() {
+        View rootView = getWindow().getDecorView().getRootView();
+        Bitmap bitmap = Bitmap.createBitmap(rootView.getWidth(), rootView.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        rootView.draw(canvas);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+        byte[] byteArray = outputStream.toByteArray();
+
+        return Base64.encodeToString(byteArray, Base64.NO_WRAP);
+    }
+
+
 }

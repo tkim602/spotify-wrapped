@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,5 +91,13 @@ public class Gallery extends AppCompatActivity {
         });
 
         setContentView(R.layout.gallerypage);
+        ImageButton exit = (ImageButton) findViewById(R.id.imageButton2);
+        exit.setOnClickListener((v) -> {
+            Bundle bundle1 = new Bundle();
+            bundle1.putInt("accountID", accountID);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle1);
+            startActivity(i);
+        });
     }
 }

@@ -1,13 +1,24 @@
 package com.example.spotifywrapped.Activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.spotifywrapped.Entities.Account;
 import com.example.spotifywrapped.R;
+import com.example.spotifywrapped.SpotifyWrappedDatabase;
+import com.example.spotifywrapped.SpotifyWrappedViewModel;
+import com.example.spotifywrapped.Utilities.GalleryUtility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,24 +32,72 @@ public class Gallery extends AppCompatActivity {
     private String AccessToken;
     private String timeFrame;
 
+    private int accountID;
+
+    private ArrayList<Account> accountArrayList = new ArrayList<>();
+
+    private SpotifyWrappedViewModel spotifyWrappedViewModel;
+
+    private Account currAccount;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = getIntent().getExtras();
-        location = bundle.getString("location");
-        AccessToken = bundle.getString("accountToken");
-        int accountID = bundle.getInt("accountID");
-        timeFrame = bundle.getString("timeFrame");
-        if (location.equals("summary")){
-            bundle = new Bundle();
-            bundle.putString("accountToken", AccessToken);
-            bundle.putString("timeFrame", timeFrame);
-            bundle.putInt("accountID", accountID);
-            Intent i = new Intent(getApplicationContext(), Homepage.class);
-            i.putExtras(bundle);
-            startActivity(i);
-        }
+        accountID = bundle.getInt("accountID");
+        SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
+        spotifyWrappedViewModel = new ViewModelProvider(this).get(SpotifyWrappedViewModel.class);
+
+        spotifyWrappedViewModel.getAllAccounts().observe(this, new Observer<List<Account>>() {
+            @Override
+            public void onChanged(List<Account> accounts) {
+                accountArrayList.clear();
+                for (Account a : accounts) {
+                    accountArrayList.add(a);
+                }
+
+                Bundle bundle = getIntent().getExtras();
+                accountID = bundle.getInt("accountID");
+
+                for (Account a : accountArrayList) {
+                    System.out.println(a.getAccountEmail());
+                    if (a.getAccountID() == accountID) {
+                        currAccount = a;
+
+                        ImageView[] imageViews = {
+                                findViewById(R.id.summary1),
+                                findViewById(R.id.summary2),
+                                findViewById(R.id.summary3),
+                                findViewById(R.id.summary4),
+                                findViewById(R.id.summary5),
+                                findViewById(R.id.summary6)
+                        };
+                        ArrayList<String> images = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
+
+                        for (int i = 0; i < images.size() && i < imageViews.length; i++) {
+                            String base64Image = images.get(i);
+                            byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
+                            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                            //imageViews[i].setImageBitmap(decodedBitmap);
+                            imageViews[i].setImageBitmap(Bitmap.createScaledBitmap(decodedBitmap, 500, 900, false));
+                        }
+                        break;
+                    }
+                }
+
+            }
+        });
+
         setContentView(R.layout.gallerypage);
+        ImageButton exit = (ImageButton) findViewById(R.id.imageButton2);
+        exit.setOnClickListener((v) -> {
+            Bundle bundle1 = new Bundle();
+            bundle1.putInt("accountID", accountID);
+            Intent i = new Intent(getApplicationContext(), Homepage.class);
+            i.putExtras(bundle1);
+            startActivity(i);
+        });
     }
 }

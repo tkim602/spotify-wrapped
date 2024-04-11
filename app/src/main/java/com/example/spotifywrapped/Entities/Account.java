@@ -19,18 +19,23 @@ public class Account {
 
     @ColumnInfo(name = "account_name")
     private String accountName;
-  
+
     @ColumnInfo(name = "account_token")
     private String accountToken;
+
+    @ColumnInfo(name = "account_images")
+    private String accountImages;
+
 
     public Account(String accountEmail, String accountPassword, String accountName) {
         this.accountEmail = accountEmail;
         this.accountPassword = accountPassword;
         this.accountName = accountName;
         this.accountToken = null;
+        this.accountImages = "";
     }
 
-    public  Account() {
+    public Account() {
 
     }
 
@@ -73,9 +78,18 @@ public class Account {
     public void setAccountPassword(String accountPassword) {
         this.accountPassword = accountPassword;
     }
+
+    public String getAccountImages() {
+        return accountImages;
+    }
+
+    public void setAccountImages(String accountImages) {
+        this.accountImages = accountImages;
+    }
+
     @NonNull
     @Override
     public String toString() {
-        return "Account ID: " + accountID + ", Email: " + accountEmail + ", Password: " + accountPassword + ", Token: " + accountToken;
+        return "Images: " + accountImages;
     }
 }

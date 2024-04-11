@@ -79,7 +79,8 @@ public class Gallery extends AppCompatActivity {
                             String base64Image = images.get(i);
                             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
                             Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                            imageViews[i].setImageBitmap(decodedBitmap);
+                            //imageViews[i].setImageBitmap(decodedBitmap);
+                            imageViews[i].setImageBitmap(Bitmap.createScaledBitmap(decodedBitmap, 500, 900, false));
                         }
                         break;
                     }

@@ -12,13 +12,43 @@
         android:layout_height="match_parent"
         android:background="@drawable/black_patterns">
 
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:scaleX="0.7"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/summary1"
+            app:layout_constraintStart_toStartOf="@+id/summary1"
+            app:layout_constraintTop_toTopOf="@+id/summary1" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:scaleX="0.65"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="-10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/summary1"
+            app:layout_constraintEnd_toEndOf="@+id/summary1"
+            app:layout_constraintStart_toStartOf="@+id/summary1" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/summary1"
             android:layout_width="180dp"
             android:layout_height="0dp"
 
             android:layout_marginStart="30dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/summary3"
@@ -27,12 +57,42 @@
             app:layout_constraintTop_toBottomOf="@+id/textView29"
             app:shapeAppearanceOverlay="@style/cir_rad" />
 
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:scaleX="0.7"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/summary2"
+            app:layout_constraintStart_toStartOf="@+id/summary2"
+            app:layout_constraintTop_toTopOf="@+id/summary2" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:scaleX="0.65"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="-10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/summary2"
+            app:layout_constraintEnd_toEndOf="@+id/summary2"
+            app:layout_constraintStart_toStartOf="@+id/summary2" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/summary2"
             android:layout_width="180dp"
             android:layout_height="0dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
             android:scaleType="centerCrop"
@@ -41,6 +101,36 @@
             app:layout_constraintStart_toEndOf="@+id/summary1"
             app:layout_constraintTop_toBottomOf="@+id/textView29"
             app:shapeAppearanceOverlay="@style/cir_rad" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:scaleX="0.7"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/summary3"
+            app:layout_constraintStart_toStartOf="@+id/summary3"
+            app:layout_constraintTop_toTopOf="@+id/summary3" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:scaleX="0.65"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="-10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/summary3"
+            app:layout_constraintEnd_toEndOf="@+id/summary3"
+            app:layout_constraintStart_toStartOf="@+id/summary3" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/summary3"
@@ -54,6 +144,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/summary1"
             app:shapeAppearanceOverlay="@style/cir_rad" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:scaleX="0.7"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/summary4"
+            app:layout_constraintStart_toStartOf="@+id/summary4"
+            app:layout_constraintTop_toTopOf="@+id/summary4" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:scaleX="0.65"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="-10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/summary4"
+            app:layout_constraintEnd_toEndOf="@+id/summary4"
+            app:layout_constraintStart_toStartOf="@+id/summary4" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/summary4"
@@ -69,6 +189,36 @@
             app:layout_constraintTop_toBottomOf="@+id/summary2"
             app:shapeAppearanceOverlay="@style/cir_rad" />
 
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:scaleX="0.7"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/summary5"
+            app:layout_constraintStart_toStartOf="@+id/summary5"
+            app:layout_constraintTop_toTopOf="@+id/summary5" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:scaleX="0.65"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="-10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/summary5"
+            app:layout_constraintEnd_toEndOf="@+id/summary5"
+            app:layout_constraintStart_toStartOf="@+id/summary5" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/summary5"
             android:layout_width="180dp"
@@ -81,6 +231,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/summary3"
             app:shapeAppearanceOverlay="@style/cir_rad" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient"
+            android:rotation="90"
+            android:scaleX="0.7"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/summary6"
+            app:layout_constraintStart_toStartOf="@+id/summary6"
+            app:layout_constraintTop_toTopOf="@+id/summary6" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient2"
+            android:rotation="90"
+            android:scaleX="0.65"
+            android:scaleY="1.9"
+            android:translationX="0dp"
+            android:translationY="-10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/summary6"
+            app:layout_constraintEnd_toEndOf="@+id/summary6"
+            app:layout_constraintStart_toStartOf="@+id/summary6" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/summary6"

@@ -5,8 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -74,15 +76,39 @@ public class Gallery extends AppCompatActivity {
                                 findViewById(R.id.summary5),
                                 findViewById(R.id.summary6)
                         };
+                        TextView[] orange = {
+                                findViewById(R.id.color_0),
+                                findViewById(R.id.color_1),
+                                findViewById(R.id.color_2),
+                                findViewById(R.id.color_3),
+                                findViewById(R.id.color_4),
+                                findViewById(R.id.color_5)
+                        };
+                        TextView[] blue = {
+                                findViewById(R.id.bluecolor_0),
+                                findViewById(R.id.bluecolor_1),
+                                findViewById(R.id.bluecolor_2),
+                                findViewById(R.id.bluecolor_3),
+                                findViewById(R.id.bluecolor_4),
+                                findViewById(R.id.bluecolor_5)
+                        };
                         ArrayList<String> images = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
-
                         for (int i = 0; i < images.size() && i < imageViews.length; i++) {
                             String base64Image = images.get(i);
                             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
                             Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                             //imageViews[i].setImageBitmap(decodedBitmap);
                             imageViews[i].setImageBitmap(Bitmap.createScaledBitmap(decodedBitmap, 500, 900, false));
+                            if (i + 1 >= images.size() || i + 1 >= imageViews.length) {
+                                for (int j = 0; j <= i && j < orange.length && j <  blue.length; j++) {
+                                    TextView t = (TextView) orange[j];
+                                    t.setVisibility(View.VISIBLE);
+                                    TextView t2 = (TextView) blue[j];
+                                    t2.setVisibility(View.VISIBLE);
+                                }
+                            }
                         }
+
                         break;
                     }
                 }

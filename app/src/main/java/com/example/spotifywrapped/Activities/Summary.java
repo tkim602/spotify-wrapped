@@ -32,10 +32,15 @@ import com.example.spotifywrapped.Utilities.GalleryUtility;
 import org.checkerframework.checker.units.qual.C;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -281,12 +286,23 @@ public class Summary extends AppCompatActivity {
         Canvas canvas = new Canvas(bitmap);
         rootView.draw(canvas);
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-        byte[] byteArray = outputStream.toByteArray();
+        File screenshotDir = new File(getExternalFilesDir(null), "screenshots");
+        if (!screenshotDir.exists()) {
+            screenshotDir.mkdirs();
+        }
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        String filename = "screenshot_" + timestamp + ".png";
 
-        return Base64.encodeToString(byteArray, Base64.NO_WRAP);
+        File screenshotFile = new File(screenshotDir, filename);
+        try {
+            FileOutputStream outputStream = new FileOutputStream(screenshotFile);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screenshotFile.getAbsolutePath();
     }
-
-
 }
+

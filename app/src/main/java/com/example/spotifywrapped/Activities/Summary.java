@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -286,22 +288,31 @@ public class Summary extends AppCompatActivity {
         Canvas canvas = new Canvas(bitmap);
         rootView.draw(canvas);
 
-        File screenshotDir = new File(getExternalFilesDir(null), "screenshots");
-        if (!screenshotDir.exists()) {
-            screenshotDir.mkdirs();
-        }
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
         String filename = "screenshot_" + timestamp + ".png";
 
-        File screenshotFile = new File(screenshotDir, filename);
+        String folderName = "SpotifyWrapped";
+        File picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File appDir = new File(picturesDir, folderName);
+        if (!appDir.exists()) {
+            appDir.mkdirs();
+        }
+
+        File screenshotFile = new File(appDir, filename);
         try {
             FileOutputStream outputStream = new FileOutputStream(screenshotFile);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
             outputStream.flush();
             outputStream.close();
+
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            Uri contentUri = Uri.fromFile(screenshotFile);
+            mediaScanIntent.setData(contentUri);
+            sendBroadcast(mediaScanIntent);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return screenshotFile.getAbsolutePath();
     }
 }

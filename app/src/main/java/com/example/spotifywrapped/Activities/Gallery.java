@@ -67,6 +67,7 @@ public class Gallery extends AppCompatActivity {
                     System.out.println(a.getAccountEmail());
                     if (a.getAccountID() == accountID) {
                         currAccount = a;
+                        screenshotPaths = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
 
                         ImageView[] imageViews = {
                                 findViewById(R.id.summary1),
@@ -94,13 +95,11 @@ public class Gallery extends AppCompatActivity {
                         };
                         ArrayList<String> images = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
                         for (int i = 0; i < images.size() && i < imageViews.length; i++) {
-                            String base64Image = images.get(i);
-                            byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
-                            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                            //imageViews[i].setImageBitmap(decodedBitmap);
-                            imageViews[i].setImageBitmap(Bitmap.createScaledBitmap(decodedBitmap, 500, 900, false));
+                            String screenshotPath = screenshotPaths.get(i);
+                            Bitmap bitmap = BitmapFactory.decodeFile(screenshotPath);
+                            imageViews[i].setImageBitmap(Bitmap.createScaledBitmap(bitmap, 500, 900, false));
                             if (i + 1 >= images.size() || i + 1 >= imageViews.length) {
-                                for (int j = 0; j <= i && j < orange.length && j <  blue.length; j++) {
+                                for (int j = 0; j <= i && j < orange.length && j < blue.length; j++) {
                                     TextView t = (TextView) orange[j];
                                     t.setVisibility(View.VISIBLE);
                                     TextView t2 = (TextView) blue[j];

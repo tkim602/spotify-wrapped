@@ -84,17 +84,14 @@ public class Summary extends AppCompatActivity {
         topsongTextViews[2] = findViewById(R.id.topsong_update3);
         topsongTextViews[3] = findViewById(R.id.topsong_update4);
         topsongTextViews[4] = findViewById(R.id.topsong_update5);
-        topsongTextViews[5] = findViewById(R.id.topsong_update6);
 
         artistTextViews[0] = findViewById(R.id.topartist_update1);
         artistTextViews[1] = findViewById(R.id.topartist_update2);
         artistTextViews[2] = findViewById(R.id.topartist_update3);
         artistTextViews[3] = findViewById(R.id.topartist_update4);
         artistTextViews[4] = findViewById(R.id.topartist_update5);
-        artistTextViews[5] = findViewById(R.id.topartist_update6);
 
         genreTextView = findViewById(R.id.genretobeupdated);
-        minutesTextView = findViewById(R.id.minutesToBeUpdated);
         artistImageView = findViewById(R.id.artistImage);
 
         SpotifyWrappedDatabase db = SpotifyWrappedDatabase.getInstance(this);
@@ -178,7 +175,6 @@ public class Summary extends AppCompatActivity {
                     List<Track> tracks = response.body().getItems();
                     updateTopTracksUI(tracks);
                     int totalListeningMinutes = calculateListeningMinutes(tracks);
-                    updateListeningMinutesUI(totalListeningMinutes);
                 } else {
                     Log.e("Summary", "Failed to load top tracks");
                 }
@@ -192,7 +188,7 @@ public class Summary extends AppCompatActivity {
     }
 
     private void updateTopTracksUI(List<Track> tracks) {
-        int limit = Math.min(tracks.size(), 6);
+        int limit = Math.min(tracks.size(), 5);
         for (int i = 0; i < limit; i++) {
             Track track = tracks.get(i);
             topsongTextViews[i].setText(track.getName());
@@ -224,7 +220,7 @@ public class Summary extends AppCompatActivity {
     }
 
     private void updateTopArtistsUI(List<Artist> artists) {
-        int limit = Math.min(artists.size(), 6);
+        int limit = Math.min(artists.size(), 5);
         for (int i = 0; i < limit; i++) {
             Artist artist = artists.get(i);
             artistTextViews[i].setText(artist.getName());
@@ -253,9 +249,6 @@ public class Summary extends AppCompatActivity {
         genreTextView.setText(genre);
     }
 
-    private void updateListeningMinutesUI(int minutes) {
-        minutesTextView.setText(String.format("%d minutes", minutes));
-    }
 
     private void playTopTrack(String url) {
         if (mediaPlayer != null) {

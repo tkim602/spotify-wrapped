@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -131,6 +132,7 @@ public class Summary extends AppCompatActivity {
 
             ArrayList<String> currentImages = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
             currentImages.add(captureScreenshot());
+
             currAccount.setAccountImages(GalleryUtility.encodeBase64ImagesToString(currentImages));
             spotifyWrappedViewModel.updateAccount(currAccount);
 
@@ -145,6 +147,7 @@ public class Summary extends AppCompatActivity {
             i.putExtras(bundle);
             ArrayList<String> currentImages = GalleryUtility.extractBase64Strings(currAccount.getAccountImages());
             currentImages.add(captureScreenshot());
+
             currAccount.setAccountImages(GalleryUtility.encodeBase64ImagesToString(currentImages));
             spotifyWrappedViewModel.updateAccount(currAccount);
 
@@ -154,6 +157,10 @@ public class Summary extends AppCompatActivity {
 
         setupRetrofit();
         loadTopTractsAndArtists();
+        CharSequence text = "Your Summary has been Exported";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(this, text, duration);
+        toast.show();
     }
 
     private void loadTopTractsAndArtists() {

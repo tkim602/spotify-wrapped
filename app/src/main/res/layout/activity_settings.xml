@@ -44,13 +44,13 @@
             android:layout_height="49dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_edittext"
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="8dp"
-            android:drawableTint="#FFFFFF"
             android:hint="Edit email"
             android:padding="8dp"
-            android:textColor="@color/white"
-            android:textColorHint="#BCBCBC"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,41 +62,18 @@
             android:layout_height="49dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/custom_edittext"
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="8dp"
-            android:drawableTint="#FFFFFF"
             android:hint="Edit password"
             android:inputType="textPassword"
             android:padding="8dp"
-            android:textColor="@color/white"
-            android:textColorHint="#BCBCBC"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_email" />
-
-<!--        <com.google.android.material.switchmaterial.SwitchMaterial-->
-<!--            android:id="@+id/material_switch"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="332dp"-->
-<!--            android:layout_marginEnd="216dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/darkmode_text"-->
-<!--            android:layout_width="102dp"-->
-<!--            android:layout_height="41dp"-->
-<!--            android:layout_marginTop="340dp"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Dark mode"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="18dp"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/material_switch"-->
-<!--            app:layout_constraintHorizontal_bias="0.612"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <Button
             android:id="@+id/delete_account"

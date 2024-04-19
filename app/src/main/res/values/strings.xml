@@ -12,4 +12,9 @@
         <item>Past Six Months</item>
         <item>Past Year</item>
     </string-array>
+    <string-array name="aspects">
+        <item>Act</item>
+        <item>Think</item>
+        <item>Dress</item>
+    </string-array>
 </resources>

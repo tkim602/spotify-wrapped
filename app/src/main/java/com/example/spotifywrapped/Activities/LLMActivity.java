@@ -41,7 +41,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class LLMActivity extends AppCompatActivity {
-    String geminiAPIKey = "AIzaSyDSdlNmp-5NI6OsupefGtjeDKNORIPYzh" + "Y";
+    String geminiAPIKey = "AIzaSyBWKvi_pbQap6KmDv8C9H0KuSqAc6IV4c" + "w";
     String token;
     Spinner dropdown;
     TextView output;
@@ -57,7 +57,7 @@ public class LLMActivity extends AppCompatActivity {
         Bundle gbundle = getIntent().getExtras();
         token = gbundle.getString("accountToken");
         int accountId = gbundle.getInt("accountID");
-        
+
         //Get Layout Items
         dropdown = (Spinner) findViewById(R.id.llm_dropdown);
         output = (TextView) findViewById(R.id.llm_result_text);

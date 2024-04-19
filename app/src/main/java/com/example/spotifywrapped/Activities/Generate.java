@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -69,6 +70,9 @@ public class Generate extends AppCompatActivity {
             i.putExtras(bundle);
             startActivity(i);
         });
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.times, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
+        spinner.setAdapter(adapter);
         //Set click listener for spinner (drop down menu)
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

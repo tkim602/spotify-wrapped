@@ -55,11 +55,9 @@
             <Spinner
                 android:id="@+id/llm_dropdown"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_marginVertical="25dp"
-                android:backgroundTint="@color/cardview_shadow_start_color"
                 android:entries="@array/aspects"
-                android:dropDownSelector="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
